@@ -1,0 +1,133 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* opacity: 0; */
+  /* visibility: hidden; */
+  transition: all 0.5s linear;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+  padding: 0 19px;
+}
+
+.modal__form-container {
+  position: fixed;
+  background-color: white;
+  max-width: 430px;
+  /* width: 100%; */
+  /* max-height: 436px; */
+  border-radius: 16px;
+  padding: 34px 36px 28px;
+}
+
+.modal__form-title {
+  margin: 0;
+}
+
+.modal__form_close-button {
+  position: absolute;
+  top: 20px;
+  right: 28px;
+  background: transparent url(../../images/modalForm-close.svg) center no-repeat;
+  background-size: contain;
+  border: none;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+}
+
+.modal__form_submit-button {
+  display: flex;
+  margin-top: 32px;
+  padding: 8px 16px;
+  /* width: 86px; */
+  height: 36px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 1);
+  color: white;
+  border: none;
+  font-family: "CabinetGrotesk-Regular";
+  cursor: pointer;
+}
+
+.modal__form_submit-button:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal__form_submit-button:disabled {
+  background-color: rgba(0, 0, 0, 0.3);
+  cursor: not-allowed;
+}
+
+.modal__form_switch-button {
+  color: rgba(0, 0, 0, 0.5);
+  border-width: 0cap;
+  margin-left: 98px;
+  margin-top: 40px;
+  position: absolute;
+  background-color: white;
+  cursor: pointer;
+}
+
+.modal__form_switch-button:hover {
+  color: rgba(0, 0, 0, 1);
+}
+
+.modal__list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.modal__form-field {
+  margin-top: 24px;
+}
+
+.modal__input {
+  padding: 0 0 4px;
+  width: 440px;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0);
+}
+
+.modal__text {
+  margin: 24px 0 8px;
+}
+
+.modal__radio {
+  margin: 12px 0 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  accent-color: #000;
+}
+
+.modal__input-radio ~ label {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.modal__input-radio:checked ~ label {
+  color: black;
+}
+
+.modal__switch {
+  margin: 0;
+  position: relative;
+  top: 32px;
+  left: 140px;
+  font-family: "Cabinet Grotesk Bold", "Arial", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  cursor: pointer;
+}
+.modal__switch:hover {
+  opacity: 0.6;
+}
