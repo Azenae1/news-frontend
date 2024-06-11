@@ -46,7 +46,7 @@ const RegisterModal = ({
     >
       <div className="modal__form-field">
         <label>
-          <h4 className="modal__text">Email*</h4>
+          <h4 className="modal__text">Email</h4>
           <input
             type="email"
             name="email"
@@ -62,7 +62,7 @@ const RegisterModal = ({
       </div>
       <div className="modal__form-field">
         <label>
-          <h4 className="modal__text">Password*</h4>
+          <h4 className="modal__text">Password</h4>
           <input
             type="password"
             name="password"
@@ -77,7 +77,7 @@ const RegisterModal = ({
       </div>
       <div className="modal__form-field">
         <label>
-          <h4 className="modal__text">Username*</h4>
+          <h4 className="modal__text">Username</h4>
           <input
             type="text"
             name="name"
