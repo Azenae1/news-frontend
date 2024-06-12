@@ -54,7 +54,7 @@ const RegisterModal = ({
             minLength="1"
             maxLength="30"
             required
-            placeholder="Email"
+            placeholder="Enter email"
             className="modal__input"
             onChange={handleEmailChange}
           />
@@ -69,7 +69,7 @@ const RegisterModal = ({
             value={password}
             minLength="6"
             required
-            placeholder="Password"
+            placeholder="Enter password"
             className="modal__input"
             onChange={handlePasswordChange}
           />
@@ -85,7 +85,7 @@ const RegisterModal = ({
             minLength="2"
             maxLength="30"
             required
-            placeholder="Name"
+            placeholder="Enter your username"
             className="modal__input"
             onChange={handleNameChange}
           />
@@ -97,7 +97,7 @@ const RegisterModal = ({
         onClick={switchToLogin}
         type="button"
       >
-        or Sign in
+        or <span className="modal__form_login-button_text"> Sign in</span>
       </button>
     </ModalWithForm>
   );
