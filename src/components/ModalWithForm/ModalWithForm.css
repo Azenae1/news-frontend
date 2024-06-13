@@ -86,21 +86,17 @@
   cursor: pointer;
 }
 
-.modal__form_login-button_text {
+.modal__form_switch-button_text {
   color: rgba(47, 113, 229, 1);
 }
 
-.modal__form_login-button_text:hover {
+.modal__form_switch-button_text:hover {
   color: rgba(42, 101, 204, 1);
 }
 
 .modal__list {
   list-style-type: none;
   padding: 0;
-}
-
-.modal__form-field {
-  /* margin-top: 24px; */
 }
 
 .modal__input {

@@ -1,26 +1,17 @@
 import React, { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-const RegisterModal = ({
+const LoginModal = ({
   handleCloseModal,
-  onRegister,
-  switchToLogin,
+  onLogin,
+  switchToRegister,
   isLoading,
   isOpen,
 }) => {
   const validateForm = () => {
-    return (
-      email.trim() !== "" &&
-      password.trim().length >= 6 &&
-      name.trim().length >= 2
-    );
+    return email.trim() !== "" && password.trim().length >= 6;
   };
 
-  const [name, setName] = useState("");
-  const handleNameChange = (e) => {
-    // console.log(e.target.value);
-    setName(e.target.value);
-  };
   const [password, setPassword] = useState("");
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
@@ -32,13 +23,13 @@ const RegisterModal = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onRegister({ name, password, email });
+    onLogin({ email, password });
   };
 
   return (
     <ModalWithForm
-      title="Sign Up"
-      buttonText={isLoading ? "Saving..." : "Sign up"}
+      title="Sign In"
+      buttonText={isLoading ? "Loading..." : "Sign In"}
       onClose={handleCloseModal}
       isOpen={isOpen}
       onSubmit={handleSubmit}
@@ -54,7 +45,7 @@ const RegisterModal = ({
             minLength="1"
             maxLength="30"
             required
-            placeholder="Enter email"
+            placeholder="Email"
             className="modal__input"
             onChange={handleEmailChange}
           />
@@ -69,38 +60,23 @@ const RegisterModal = ({
             value={password}
             minLength="6"
             required
-            placeholder="Enter password"
+            placeholder="Password"
             className="modal__input"
             onChange={handlePasswordChange}
           />
         </label>
       </div>
-      <div className="modal__form-field">
-        <label>
-          <h4 className="modal__text">Username</h4>
-          <input
-            type="text"
-            name="name"
-            value={name}
-            minLength="2"
-            maxLength="30"
-            required
-            placeholder="Enter your username"
-            className="modal__input"
-            onChange={handleNameChange}
-          />
-        </label>
+      <div className="login">
+        <button
+          className="modal__form_switch-button"
+          onClick={switchToRegister}
+          type="button"
+        >
+          or <span className="modal__form_switch-button_text"> Sign up</span>
+        </button>
       </div>
-
-      <button
-        className="modal__form_switch-button"
-        onClick={switchToLogin}
-        type="button"
-      >
-        or <span className="modal__form_switch-button_text"> Sign in</span>
-      </button>
     </ModalWithForm>
   );
 };
 
-export default RegisterModal;
+export default LoginModal;
