@@ -1,0 +1,36 @@
+.header {
+  background-color: lightcoral;
+  max-width: 1440px;
+  height: 80px;
+  box-sizing: border-box;
+  padding: 19px 104px 13px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header__logo {
+  margin-top: 11px;
+  font-size: 20px;
+  line-height: 24px;
+  font-family: "Roboto-Slab";
+  font-weight: 700;
+  color: white;
+}
+
+.header__button {
+  align-self: center;
+  border: none;
+  background: transparent;
+  padding: 0;
+  font-family: Roboto;
+  /* font-weight: 500; */
+  font-size: 18px;
+  line-height: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+.header__button-home {
+  margin-left: auto;
+  margin-right: 42px;
+}

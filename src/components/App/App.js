@@ -13,6 +13,7 @@ import Header from "../Header/Header";
 function App() {
   return (
     <div className="App">
+      <Header />
       {/* <Routes>
         <Route exact path="/" element={<Main />}></Route>
         <Route path="/saved-news" element={<SavedNews />}></Route>
