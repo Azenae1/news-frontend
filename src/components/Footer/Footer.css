@@ -1,1 +1,50 @@
+.footer {
+  height: 80px;
+  box-sizing: border-box;
+  padding: 0 104px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
 
+.footer__copyright {
+  margin: 0;
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: rgba(182, 188, 191, 1);
+}
+
+.footer__buttons {
+  display: flex;
+}
+
+.footer__button {
+  align-self: center;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.footer__button_text {
+  background: transparent;
+  font-family: Roboto;
+  font-size: 18px;
+  line-height: 24px;
+  margin-right: 40px;
+}
+
+.footer__button_GH {
+  background: url(../../images/GitHub.svg) center no-repeat;
+  height: 24px;
+  width: 24px;
+  margin-right: 24px;
+}
+
+.footer__button_FB {
+  background: url(../../images/Facebook.svg) center no-repeat;
+  height: 24px;
+  width: 24px;
+}
