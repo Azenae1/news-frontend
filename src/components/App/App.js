@@ -2,13 +2,14 @@
 import "./App.css";
 import React, { Route, Routes } from "react-router-dom";
 // import { useEffect, useState } from "react";
+import Header from "../Header/Header";
 import Main from "../Main/Main";
-import SavedNews from "../SavedNews/SavedNews";
+import About from "../About/About";
 import Footer from "../Footer/Footer";
+import SavedNews from "../SavedNews/SavedNews";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterCompleteModal from "../RegisterCompleteModal/RegisterCompleteModal";
-import Header from "../Header/Header";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/saved-news" element={<SavedNews />}></Route>
       </Routes> */}
       </div>
+      <About />
       <Footer />
 
       {/* {activeModal === "register" && <RegisterModal />}
