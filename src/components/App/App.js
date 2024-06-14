@@ -13,11 +13,14 @@ import Header from "../Header/Header";
 function App() {
   return (
     <div className="App">
-      <Header />
-      {/* <Routes>
+      <div className="app__container">
+        <Header />
+        <Main />
+        {/* <Routes>
         <Route exact path="/" element={<Main />}></Route>
         <Route path="/saved-news" element={<SavedNews />}></Route>
       </Routes> */}
+      </div>
       <Footer />
 
       {/* {activeModal === "register" && <RegisterModal />}
