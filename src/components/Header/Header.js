@@ -5,9 +5,9 @@ import logo from "../../images/logo.svg";
 const Header = () => {
   return (
     <header className="header">
-      <div className="header__logo-group">
+      <button className="header__logo-group">
         <h2 className="header__logo">NewsExpolorer</h2>
-      </div>
+      </button>
 
       <button type="text" className="header__button header__button-home">
         Home

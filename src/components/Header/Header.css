@@ -1,7 +1,8 @@
 .header {
-  background-color: lightcoral;
+  background-color: lightblue;
   max-width: 1440px;
   height: 80px;
+  border-bottom: 1px solid rgb(0 0 0 / 20%);
   box-sizing: border-box;
   padding: 19px 104px 13px;
   display: flex;
@@ -15,6 +16,13 @@
   font-family: "Roboto-Slab";
   font-weight: 700;
   color: white;
+}
+
+.header__logo-group {
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
 }
 
 .header__button {
