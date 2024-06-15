@@ -1,0 +1,42 @@
+.searchlist {
+  padding: 80px 104px;
+  background-color: rgba(245, 246, 247, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.searchlist__cards {
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.searchlist__title {
+  margin: 0;
+  font-family: Roboto-slab;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 46px;
+}
+
+.searchlist__button {
+  max-width: 288px;
+  height: 56px;
+  margin-top: 48px;
+  padding: 17px 90px;
+  background-color: #fff;
+  border: none;
+  border-radius: 25px;
+  font-family: Roboto, Inter, Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: center;
+  align-self: center;
+  cursor: pointer;
+}
+
+.searchlist__button:hover {
+  background-color: rgba(232, 232, 232, 1);
+}

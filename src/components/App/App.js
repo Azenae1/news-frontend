@@ -10,6 +10,7 @@ import SavedNews from "../SavedNews/SavedNews";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterCompleteModal from "../RegisterCompleteModal/RegisterCompleteModal";
+import SearchList from "../SearchResults/SearchList";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/saved-news" element={<SavedNews />}></Route>
       </Routes> */}
       </div>
+      <SearchList />
       <About />
       <Footer />
 
