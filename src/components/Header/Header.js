@@ -11,10 +11,11 @@ const Header = () => {
 
       <button type="text" className="header__button header__button-home">
         Home
+        <div className="header__underline"></div>
       </button>
 
-      <button type="text" className="header__button">
-        Sign In
+      <button type="text" className="header__button header__button-signin">
+        Sign in
       </button>
     </header>
   );
