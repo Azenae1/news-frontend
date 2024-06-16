@@ -1,0 +1,13 @@
+.saved__header-logout {
+  border: 1px solid black;
+}
+
+.saved__underline {
+  width: 178px;
+  height: 3px;
+  background-color: black;
+  position: absolute;
+  margin-top: 23px;
+  margin-left: -32px;
+  cursor: auto;
+}

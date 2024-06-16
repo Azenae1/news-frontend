@@ -14,6 +14,9 @@
   line-height: 24px;
   font-family: "Roboto-Slab";
   font-weight: 700;
+}
+
+.header__logo-color {
   color: white;
 }
 
@@ -33,8 +36,12 @@
   /* font-weight: 500; */
   font-size: 18px;
   line-height: 24px;
-  color: white;
+
   cursor: pointer;
+}
+
+.header__button-color {
+  color: white;
 }
 
 .header__button-home {
@@ -62,6 +69,9 @@
 .header__button-saved {
   margin-left: 34px;
   margin-right: 64px;
+}
+
+.header__button_saved-color {
   color: rgba(182, 188, 191, 1);
 }
 

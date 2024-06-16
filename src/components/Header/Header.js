@@ -26,19 +26,28 @@ const Header = () => {
   return (
     <header className="header">
       <button className="header__logo-group">
-        <h2 className="header__logo">NewsExpolorer</h2>
+        <h2 className="header__logo header__logo-color">NewsExpolorer</h2>
       </button>
 
-      <button type="text" className="header__button header__button-home">
+      <button
+        type="text"
+        className="header__button header__button-color header__button-home"
+      >
         Home
         <div className="header__underline"></div>
       </button>
 
-      <button type="text" className="header__button header__button-saved">
+      <button
+        type="text"
+        className="header__button header__button-saved header__button_saved-color"
+      >
         Saved articles
       </button>
 
-      <button type="text" className="header__button header__button-logout">
+      <button
+        type="text"
+        className="header__button header__button-color header__button-logout"
+      >
         <p className="header__button-text">Dude</p>
         <img
           src={logout}

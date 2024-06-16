@@ -13,6 +13,7 @@ import RegisterCompleteModal from "../RegisterCompleteModal/RegisterCompleteModa
 import SearchList from "../SearchResults/SearchList";
 import Preloader from "../Preloader/Preloader";
 import NothingFound from "../NothingFound/NothingFound";
+import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/saved-news" element={<SavedNews />}></Route>
       </Routes> */}
       </div>
+      <SavedNewsHeader />
       <NothingFound />
       <About />
       <Footer />
