@@ -11,6 +11,7 @@ import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterCompleteModal from "../RegisterCompleteModal/RegisterCompleteModal";
 import SearchList from "../SearchResults/SearchList";
+import Preloader from "../Preloader/Preloader";
 
 function App() {
   return (
