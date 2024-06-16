@@ -12,6 +12,7 @@ import LoginModal from "../LoginModal/LoginModal";
 import RegisterCompleteModal from "../RegisterCompleteModal/RegisterCompleteModal";
 import SearchList from "../SearchResults/SearchList";
 import Preloader from "../Preloader/Preloader";
+import NothingFound from "../NothingFound/NothingFound";
 
 function App() {
   return (
@@ -24,7 +25,7 @@ function App() {
         <Route path="/saved-news" element={<SavedNews />}></Route>
       </Routes> */}
       </div>
-      <SearchList />
+      <NothingFound />
       <About />
       <Footer />
 
