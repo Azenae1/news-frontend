@@ -11,3 +11,36 @@
   margin-left: -32px;
   cursor: auto;
 }
+
+.saved__news {
+  padding: 0 104px;
+}
+
+.saved__info {
+  margin: 40px 0 56px;
+}
+
+.saved__text {
+  margin: 0;
+  font-family: Roboto;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+.saved__text-bold {
+  font-weight: 700;
+}
+
+.saved__grey {
+  color: rgba(26, 27, 34, 0.5);
+}
+
+.saved__title {
+  max-width: 530px;
+  margin: 28px 0 30px;
+  font-family: Roboto-slab;
+  font-size: 40px;
+  line-height: 46px;
+  font-weight: 400;
+}

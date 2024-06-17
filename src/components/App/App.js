@@ -27,8 +27,7 @@ function App() {
       </Routes> */}
       </div>
       <SavedNewsHeader />
-      <NothingFound />
-      <About />
+      <SavedNews />
       <Footer />
 
       {/* {activeModal === "register" && <RegisterModal />}

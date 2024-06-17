@@ -52,6 +52,24 @@
   overflow: hidden; */
 }
 
+.card__favorite-login {
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 8px;
+  width: 182px;
+  height: 40px;
+  position: absolute;
+  margin-top: 24px;
+  margin-left: 149px;
+  font-family: Roboto;
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 500;
+}
+
 .card__favorite-button {
   background: transparent url(../../images/flag.svg) center no-repeat;
   border: none;
