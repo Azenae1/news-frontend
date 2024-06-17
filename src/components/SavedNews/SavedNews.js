@@ -1,3 +1,6 @@
+import "./SavedNews.css";
+import NewsCard from "../NewsCard/NewsCard";
+
 const SavedNews = () => {
   return (
     <section className="saved__news">
@@ -11,7 +14,11 @@ const SavedNews = () => {
           </span>
         </p>
       </div>
-      <ul className="saved__list"></ul>
+      <ul className="saved__list searchlist__cards">
+        <NewsCard />
+        <NewsCard />
+        <NewsCard />
+      </ul>
     </section>
   );
 };
