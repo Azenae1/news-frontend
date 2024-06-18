@@ -3,7 +3,7 @@ import SearchForm from "../SearchForm/SearchForm";
 
 const Main = () => {
   return (
-    <main>
+    <main className="main">
       <section className="main__section">
         <h1 className="main__title">
           What's going on in <br />

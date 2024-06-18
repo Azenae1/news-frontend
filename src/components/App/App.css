@@ -11,9 +11,15 @@
   line-height: 20px;
 }
 
+.app {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
 .app__container {
   background-image: url(../../images/main-background.png);
   background-repeat: no-repeat;
   background-position: top;
-  background-size: inherit;
+  background-size: cover;
+  max-width: 1440px;
 }
