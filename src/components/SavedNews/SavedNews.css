@@ -14,6 +14,7 @@
 
 .saved__news {
   padding: 0 104px;
+  max-width: 1440px;
 }
 
 .saved__info {

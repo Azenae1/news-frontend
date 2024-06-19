@@ -1,6 +1,7 @@
 .searchbar {
   margin-top: 88px;
   margin-bottom: 80px;
+  max-width: 1440px;
 }
 
 .searchbar__form {

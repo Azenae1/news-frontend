@@ -17,7 +17,7 @@ import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <div className="app__container">
         <Header />
         <Main />
