@@ -23,3 +23,9 @@ h3 {
   line-height: 28px;
   font-family: Roboto;
 }
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}

@@ -1,3 +1,4 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
 import logo from "../../images/logo.svg";
@@ -11,7 +12,7 @@ const Header1 = () => {
       </button>
 
       <button type="text" className="header__button header__button-home">
-        Home
+        <Link to="/">Home</Link>
         <div className="header__underline"></div>
       </button>
 
@@ -33,7 +34,7 @@ const Header = () => {
         type="text"
         className="header__button header__button-color header__button-home"
       >
-        Home
+        <Link to="/">Home</Link>
         <div className="header__underline"></div>
       </button>
 
