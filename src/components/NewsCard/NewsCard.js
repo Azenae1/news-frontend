@@ -37,9 +37,9 @@ const NewsCard1 = () => {
 
 const NewsCard = () => {
   return (
-    <li class="card">
-      <button class="card__delete-button" type="button"></button>
-      <img src={img} alt="alt" class="card__image" id="card-image" />
+    <li className="card">
+      <button className="card__delete-button" type="button"></button>
+      <img src={img} alt="alt" className="card__image" id="card-image" />
       <div className="card__favorite-remove">
         <p className="card__favorite-text">Remove from saved</p>
       </div>

@@ -4,7 +4,7 @@ import "./Header.css";
 import logo from "../../images/logo.svg";
 import logout from "../../images/logout-white.svg";
 
-const Header1 = () => {
+const Header = ({ onLogin }) => {
   return (
     <header className="header">
       <button className="header__logo-group">
@@ -16,14 +16,18 @@ const Header1 = () => {
         <div className="header__underline"></div>
       </button>
 
-      <button type="text" className="header__button header__button-signin">
+      <button
+        type="text"
+        className="header__button header__button-signin"
+        onClick={onLogin}
+      >
         Sign in
       </button>
     </header>
   );
 };
 
-const Header = () => {
+const Header1 = ({ onRegister, onLogin }) => {
   return (
     <header className="header">
       <button className="header__logo-group">
