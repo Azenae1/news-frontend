@@ -42,7 +42,7 @@ const Header = () => {
         type="text"
         className="header__button header__button-saved header__button_saved-color"
       >
-        Saved articles
+        <Link to="/saved-news">Saved articles</Link>
       </button>
 
       <button

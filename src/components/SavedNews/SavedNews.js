@@ -1,9 +1,11 @@
 import "./SavedNews.css";
 import NewsCard from "../NewsCard/NewsCard";
+import Header from "../Header/Header";
 
 const SavedNews = () => {
   return (
     <section className="saved__news">
+      <Header />
       <div className="saved__info">
         <p className="saved__text saved__grey">Saved articles</p>
         <h2 className="saved__title">Dude, you have X saved articles</h2>

@@ -2,6 +2,13 @@
   max-width: 1440px;
 }
 
+.main__cover {
+  background-image: url(../../images/main-background.png);
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+}
+
 .main__section {
   max-width: 1440px;
   display: flex;

@@ -45,3 +45,8 @@
   line-height: 46px;
   font-weight: 400;
 }
+
+.saved__list {
+  padding-top: 62px;
+  background-color: rgba(245, 246, 247, 1);
+}

@@ -18,20 +18,12 @@ import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
 function App() {
   return (
     <div className="app">
-      <div className="app__container">
-        <Header />
-        <Main />
-        {/* <Routes>
-        <Route exact path="/" element={<Main />}></Route>
-        <Route path="/saved-news" element={<SavedNews />}></Route>
-      </Routes> */}
-      </div>
-      <SavedNewsHeader />
-      <SavedNews />
-      <Footer />
+      <Routes>
+        <Route exact path="/" element={<Main />} />
+        <Route exact path="/saved-news" element={<SavedNews />} />
+      </Routes>
 
-      {/* {activeModal === "register" && <RegisterModal />}
-      {activeModal === "login" && <LoginModal />} */}
+      <Footer />
     </div>
   );
 }
