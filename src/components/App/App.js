@@ -2,6 +2,7 @@ import React, { Route, Routes } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import "./App.css";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import About from "../About/About";
@@ -18,12 +19,22 @@ import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
 function App() {
   const [activeModal, setActiveModal] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [currentUser, setCurrentUser] = useState({});
 
   const openRegisterModal = () => {
     setActiveModal("signup");
   };
   const openLoginModal = () => {
     setActiveModal("login");
+  };
+
+  const handleLogout = (e) => {
+    e.preventDefault();
+    localStorage.removeItem("token");
+    setCurrentUser({});
+    setIsLoggedIn(false);
+    // navigate("/");
   };
 
   const handleCloseModal = () => {
@@ -36,30 +47,42 @@ function App() {
   };
 
   return (
-    <div className="app">
-      <Routes>
-        <Route exact path="/" element={<Main onLogin={openLoginModal} />} />
-        <Route exact path="/saved-news" element={<SavedNews />} />
-      </Routes>
+    <CurrentUserContext.Provider value={{ currentUser }}>
+      <div className="app">
+        <Routes>
+          <Route
+            exact
+            path="/"
+            element={
+              <Main
+                onLogin={openLoginModal}
+                onLogout={handleLogout}
+                isLoggedIn={isLoggedIn}
+              />
+            }
+          />
+          <Route exact path="/saved-news" element={<SavedNews />} />
+        </Routes>
 
-      <Footer />
-      {activeModal === "signup" && (
-        <RegisterModal
-          handleCloseModal={handleCloseModal}
-          isOpen
-          switchToLogin={handleRedirect}
-          isLoading={isLoading}
-        />
-      )}
-      {activeModal === "login" && (
-        <LoginModal
-          handleCloseModal={handleCloseModal}
-          isOpen
-          switchToRegister={handleRedirect}
-          isLoading={isLoading}
-        />
-      )}
-    </div>
+        <Footer />
+        {activeModal === "signup" && (
+          <RegisterModal
+            handleCloseModal={handleCloseModal}
+            isOpen
+            switchToLogin={handleRedirect}
+            isLoading={isLoading}
+          />
+        )}
+        {activeModal === "login" && (
+          <LoginModal
+            handleCloseModal={handleCloseModal}
+            isOpen
+            switchToRegister={handleRedirect}
+            isLoading={isLoading}
+          />
+        )}
+      </div>
+    </CurrentUserContext.Provider>
   );
 }
 

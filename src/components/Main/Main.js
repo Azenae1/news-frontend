@@ -3,11 +3,11 @@ import SearchForm from "../SearchForm/SearchForm";
 import Header from "../Header/Header";
 import About from "../About/About";
 
-const Main = ({ onLogin }) => {
+const Main = ({ onLogin, onLogout, isLoggedIn }) => {
   return (
     <main className="main">
       <div className="main__cover">
-        <Header onLogin={onLogin} />
+        <Header onLogin={onLogin} onLogout={onLogout} isLoggedIn={isLoggedIn} />
         <section className="main__section">
           <h1 className="main__title">
             What's going on in <br />
