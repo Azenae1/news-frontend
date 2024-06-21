@@ -23,3 +23,36 @@ export const getSavedNews = () => {
     },
   });
 };
+
+export const addSavedNews = (newsData, keyword) => {
+  const token = localStorage.getItem("token");
+
+  return request(`${baseUrl}/articles`, {
+    method: "POST",
+    headers: {
+      ...headers,
+      authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+      title: newsData.title,
+      text: newsData.description,
+      date: newsData.publishedAt,
+      source: newsData.source.name,
+      link: newsData.url,
+      image: newsData.urlToImage,
+      keyword: keyword,
+    }),
+  });
+};
+
+export const removeSavedNews = (card) => {
+  const token = localStorage.getItem("token");
+
+  return request(`${baseUrl}/articles/${card._id}`, {
+    method: "DELETE",
+    headers: {
+      ...headers,
+      authorization: `Bearer ${token}`,
+    },
+  });
+};
