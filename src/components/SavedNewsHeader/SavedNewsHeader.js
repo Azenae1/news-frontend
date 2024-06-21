@@ -1,8 +1,13 @@
+import React, { useContext } from "react";
+
 import "../Header/Header.css";
 import "../SavedNews/SavedNews.css";
 import logout from "../../images/logout-black.svg";
 
-const SavedNewsHeader = () => {
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+
+const SavedNewsHeader = ({ onLogout }) => {
+  const { currentUser } = useContext(CurrentUserContext);
   return (
     <section className="header saved__header">
       <button className="header__logo-group">
@@ -21,8 +26,9 @@ const SavedNewsHeader = () => {
       <button
         type="text"
         className="header__button header__button-logout saved__header-logout"
+        onClick={onLogout}
       >
-        <p className="header__button-text">Dude</p>
+        <p className="header__button-text">{currentUser.name}</p>
         <img
           src={logout}
           className="header__logout-img"

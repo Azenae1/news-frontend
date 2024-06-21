@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+
 import "./Header.css";
-import logo from "../../images/logo.svg";
 import logout from "../../images/logout-white.svg";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
