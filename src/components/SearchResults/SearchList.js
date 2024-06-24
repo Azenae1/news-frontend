@@ -8,7 +8,7 @@ import { SearchResultContext } from "../../contexts/SearchResultContext";
 import { CurrentPageContext } from "../../contexts/CurrentPageContext";
 import { SavedNewsContext } from "../../contexts/SavedNewsContext";
 
-const SearchList = () => {
+const SearchList = ({ handleDeleteCard, handleSaveCard, onLogin }) => {
   const { searchResults } = useContext(SearchResultContext);
   const { currentPage, setCurrentPage } = useContext(CurrentPageContext);
   const { setSavedNews } = useContext(SavedNewsContext);
@@ -23,7 +23,7 @@ const SearchList = () => {
   useEffect(() => {
     const jwt = localStorage.getItem("token");
     getSavedNews(jwt).then(setSavedNews);
-  }, [getSavedNews]);
+  }, [setSavedNews]);
 
   const renderMoreNews = () => {
     setVisibleNews((render) => render + 3);
@@ -39,7 +39,15 @@ const SearchList = () => {
       <h2 className="searchlist__title">Search results</h2>
       <ul className="searchlist__cards">
         {searchResults.slice(0, visibleNews).map((news) => {
-          return <NewsCard />;
+          return (
+            <NewsCard
+              newsData={news}
+              key={news.link}
+              handleDeleteCard={handleDeleteCard}
+              handleSaveCard={handleSaveCard}
+              onLogin={onLogin}
+            />
+          );
         })}
       </ul>
       {visibleNews < searchResults.length && (
