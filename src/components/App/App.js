@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 
 import "./App.css";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import { HasSearchedContext } from "../../contexts/HasSearchedContext";
+import { SearchResultContext } from "../../contexts/SearchResultContext";
+import { getSearchResults } from "../../utils/newsAPI";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import About from "../About/About";
@@ -20,7 +23,13 @@ function App() {
   const [activeModal, setActiveModal] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isSearching, setIsSearching] = useState(false);
+  const [isSaved, setIsSaved] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
+  const [hasSearched, setHasSearched] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+  const [searchError, setSearchError] = useState(false);
+  const [keyword, setKeyword] = useState("");
 
   const openRegisterModal = () => {
     setActiveModal("signup");
@@ -46,42 +55,65 @@ function App() {
       : setActiveModal("signup");
   };
 
+  const handleSearch = ({ keyword }) => {
+    setKeyword(keyword);
+    setIsSearching(true);
+    getSearchResults(keyword)
+      .then((res) => {
+        setSearchResults(res.articles);
+        setIsSaved(true);
+        setHasSearched(true);
+        setIsSearching(false);
+        setSearchError(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setSearchError(true);
+      });
+  };
+
   return (
     <CurrentUserContext.Provider value={{ currentUser }}>
-      <div className="app">
-        <Routes>
-          <Route
-            exact
-            path="/"
-            element={
-              <Main
-                onLogin={openLoginModal}
-                onLogout={handleLogout}
-                isLoggedIn={isLoggedIn}
+      <HasSearchedContext.Provider value={{ hasSearched }}>
+        <SearchResultContext.Provider value={{ searchResults }}>
+          <div className="app">
+            <Routes>
+              <Route
+                exact
+                path="/"
+                element={
+                  <Main
+                    onLogin={openLoginModal}
+                    onLogout={handleLogout}
+                    isLoggedIn={isLoggedIn}
+                    handleSearch={handleSearch}
+                    searchError={searchError}
+                  />
+                }
               />
-            }
-          />
-          <Route exact path="/saved-news" element={<SavedNews />} />
-        </Routes>
+              <Route exact path="/saved-news" element={<SavedNews />} />
+            </Routes>
 
-        <Footer />
-        {activeModal === "signup" && (
-          <RegisterModal
-            handleCloseModal={handleCloseModal}
-            isOpen
-            switchToLogin={handleRedirect}
-            isLoading={isLoading}
-          />
-        )}
-        {activeModal === "login" && (
-          <LoginModal
-            handleCloseModal={handleCloseModal}
-            isOpen
-            switchToRegister={handleRedirect}
-            isLoading={isLoading}
-          />
-        )}
-      </div>
+            <Footer />
+            {activeModal === "signup" && (
+              <RegisterModal
+                handleCloseModal={handleCloseModal}
+                isOpen
+                switchToLogin={handleRedirect}
+                isLoading={isLoading}
+              />
+            )}
+            {activeModal === "login" && (
+              <LoginModal
+                handleCloseModal={handleCloseModal}
+                isOpen
+                switchToRegister={handleRedirect}
+                isLoading={isLoading}
+              />
+            )}
+          </div>
+        </SearchResultContext.Provider>
+      </HasSearchedContext.Provider>
     </CurrentUserContext.Provider>
   );
 }
