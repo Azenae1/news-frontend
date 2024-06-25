@@ -9,17 +9,13 @@ import { CurrentPageContext } from "../../contexts/CurrentPageContext";
 import { SavedNewsContext } from "../../contexts/SavedNewsContext";
 import { KeywordContext } from "../../contexts/KeywordContext";
 import { getSearchResults } from "../../utils/newsAPI";
-import Header from "../Header/Header";
 import Main from "../Main/Main";
-import About from "../About/About";
 import Footer from "../Footer/Footer";
 import SavedNews from "../SavedNews/SavedNews";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterCompleteModal from "../RegisterCompleteModal/RegisterCompleteModal";
-import SearchList from "../SearchResults/SearchList";
 import Preloader from "../Preloader/Preloader";
-import NothingFound from "../NothingFound/NothingFound";
 import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
 
 function App() {

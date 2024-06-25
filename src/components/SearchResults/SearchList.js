@@ -36,7 +36,6 @@ const SearchList = ({ handleDeleteCard, handleSaveCard, onLogin }) => {
       ) : (
         ""
       )}
-      <h2 className="searchlist__title">Search results</h2>
       <ul className="searchlist__cards">
         {searchResults.slice(0, visibleNews).map((news) => {
           return (

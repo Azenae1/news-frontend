@@ -53,6 +53,14 @@ const NewsCard = ({ newsData, handleDeleteCard, handleSaveCard, onLogin }) => {
     handleDeleteCard({ newsData, token });
   };
 
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+
   const iconClass =
     currentPage === "/saved-news"
       ? "card__delete-button"
@@ -60,33 +68,38 @@ const NewsCard = ({ newsData, handleDeleteCard, handleSaveCard, onLogin }) => {
 
   return (
     <li className="card">
-      <button
-        className={iconClass}
-        type="button"
-        onClick={!isMarked ? handleFavorite : handleRemoveFavorite}
-      ></button>
+      <div
+        className="card__button-container"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        <button
+          className={iconClass}
+          type="button"
+          onClick={!isMarked ? handleFavorite : handleRemoveFavorite}
+        ></button>
+      </div>
       <img
         src={newsData.image || newsData.urlToImage}
         alt={newsData.link || newsData.url}
         className="card__image"
         id="card-image"
       />
-      <div className="card__container">
-        {currentPage === "/saved-news" && newsData.keyword && (
-          <p className="card__tag">{newsData.keyword}</p>
-        )}
-        {isHovered && !isLoggedIn && currentPage !== "/saved-news" && (
-          <div className="card__favorite-login">
-            <p className="card__favorite-text">Sign in to save articles</p>
-          </div>
-        )}
 
-        {isHovered && currentPage === "/saved-news" && (
-          <div className="card__favorite-remove">
-            <p className="card__favorite-text">Remove from saved</p>
-          </div>
-        )}
-      </div>
+      {currentPage === "/saved-news" && newsData.keyword && (
+        <p className="card__tag">{newsData.keyword}</p>
+      )}
+      {isHovered && currentPage !== "/saved-news" && (
+        <div className="card__favorite-login">
+          <p className="card__favorite-text">Sign in to save articles</p>
+        </div>
+      )}
+
+      {isHovered && currentPage === "/saved-news" && (
+        <div className="card__favorite-remove">
+          <p className="card__favorite-text">Remove from saved</p>
+        </div>
+      )}
 
       <div className="card__description">
         <p className="card__date">
