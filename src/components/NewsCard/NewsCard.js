@@ -7,13 +7,6 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { CurrentPageContext } from "../../contexts/CurrentPageContext";
 import { SavedNewsContext } from "../../contexts/SavedNewsContext";
 import { KeywordContext } from "../../contexts/KeywordContext";
-// import img from "../../images/main-background.png";
-
-// import trash from "../../images/trash-grey.svg";
-// import trash_hover from "../../images/trash-black.svg";
-// import flag from "../../images/flag.svg";
-// import flag_hover from "../../images/flag-hover.svg";
-// import flag_marked from "../../images/flag-marked.svg";
 
 const NewsCard = ({ newsData, handleDeleteCard, handleSaveCard, onLogin }) => {
   const [isHovered, setIsHovered] = useState(false);

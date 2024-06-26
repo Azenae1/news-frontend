@@ -6,6 +6,7 @@ import Header from "../Header/Header";
 import About from "../About/About";
 import SearchList from "../SearchResults/SearchList";
 import NothingFound from "../NothingFound/NothingFound";
+import Preloader from "../Preloader/Preloader";
 import { HasSearchedContext } from "../../contexts/HasSearchedContext";
 import { SearchResultContext } from "../../contexts/SearchResultContext";
 
@@ -13,6 +14,7 @@ const Main = ({
   onLogin,
   onLogout,
   isLoggedIn,
+  isLoading,
   handleSearch,
   handleSaveCard,
   handleDeleteCard,
@@ -36,13 +38,14 @@ const Main = ({
           </p>
           <SearchForm handleSearch={handleSearch} />
           <div>
-            {hasSearched && searchResults.length > 0 ? (
+            {isLoading && <Preloader />}
+            {!isLoading && hasSearched && searchResults.length > 0 ? (
               <SearchList
                 onLogin={onLogin}
                 handleSaveCard={handleSaveCard}
                 handleDeleteCard={handleDeleteCard}
               />
-            ) : hasSearched && searchResults.length === 0 ? (
+            ) : !isLoading && hasSearched && searchResults.length === 0 ? (
               <NothingFound />
             ) : searchError === true ? (
               <div className="main__search-error_container">

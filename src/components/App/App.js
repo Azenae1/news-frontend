@@ -90,6 +90,7 @@ function App() {
                           onLogin={openLoginModal}
                           onLogout={handleLogout}
                           isLoggedIn={isLoggedIn}
+                          isLoading={isSearching}
                           handleSearch={handleSearch}
                           searchError={searchError}
                         />
