@@ -9,13 +9,13 @@ import { CurrentPageContext } from "../../contexts/CurrentPageContext";
 import { SavedNewsContext } from "../../contexts/SavedNewsContext";
 import { KeywordContext } from "../../contexts/KeywordContext";
 import { getSearchResults } from "../../utils/newsAPI";
+import { signIn, signUp, checkToken } from "../../utils/auth";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import SavedNews from "../SavedNews/SavedNews";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterCompleteModal from "../RegisterCompleteModal/RegisterCompleteModal";
-import Preloader from "../Preloader/Preloader";
 import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
 
 function App() {
@@ -39,6 +39,43 @@ function App() {
     setActiveModal("login");
   };
 
+  const handleCloseModal = () => {
+    setActiveModal("");
+  };
+
+  const handleRegister = ({ email, password, name }) => {
+    setIsLoading(true);
+    signUp(email, password, name)
+      .then((res) => {
+        handleLogin({ email, password });
+      })
+      .catch(console.error)
+      .finally(() => {
+        setIsLoading(false);
+      });
+  };
+
+  const handleLogin = ({ email, password }) => {
+    setIsLoading(true);
+    signIn(email, password)
+      .then((res) => {
+        if (res) {
+          localStorage.setItem("token", res.token);
+          setIsLoggedIn(true);
+          handleCloseModal();
+        }
+        checkToken(res.token)
+          .then((data) => {
+            setCurrentUser(data);
+          })
+          .catch(console.error);
+      })
+      .catch(console.error)
+      .finally(() => {
+        setIsLoading(false);
+      });
+  };
+
   const handleLogout = (e) => {
     e.preventDefault();
     localStorage.removeItem("token");
@@ -47,9 +84,6 @@ function App() {
     // navigate("/");
   };
 
-  const handleCloseModal = () => {
-    setActiveModal("");
-  };
   const handleRedirect = () => {
     activeModal === "signup"
       ? setActiveModal("login")
@@ -104,6 +138,7 @@ function App() {
                     <RegisterModal
                       handleCloseModal={handleCloseModal}
                       isOpen
+                      onRegister={handleRegister}
                       switchToLogin={handleRedirect}
                       isLoading={isLoading}
                     />
@@ -112,6 +147,7 @@ function App() {
                     <LoginModal
                       handleCloseModal={handleCloseModal}
                       isOpen
+                      onLogin={handleLogin}
                       switchToRegister={handleRedirect}
                       isLoading={isLoading}
                     />

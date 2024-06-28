@@ -1,4 +1,4 @@
-export const baseUrl = process.env.NODE_ENV === "http://localhost:3001";
+export const baseUrl = process.env.NODE_ENV === "http://localhost:3000";
 
 export const headers = {
   "Content-Type": "application/json",
@@ -8,51 +8,65 @@ export const handleResponse = (res) => {
   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
 };
 
-export function request(baseUrl, options) {
-  return fetch(baseUrl, options).then(handleResponse);
-}
-
-export const getSavedNews = () => {
+export const getSavedNews = async () => {
   const token = localStorage.getItem("token");
 
-  return request(`${baseUrl}/articles`, {
-    method: "GET",
-    headers: {
-      ...headers,
-      authorization: `Bearer ${token}`,
-    },
-  });
+  try {
+    const response = await fetch(`${baseUrl}/articles`, {
+      method: "GET",
+      headers: {
+        ...headers,
+        authorization: `Bearer ${token}`,
+      },
+    });
+
+    return handleResponse(response);
+  } catch (error) {
+    console.error("There was an error!", error);
+  }
 };
 
-export const addSavedNews = (newsData, keyword) => {
+export const addSavedNews = async (newsData, keyword) => {
   const token = localStorage.getItem("token");
 
-  return request(`${baseUrl}/articles`, {
-    method: "POST",
-    headers: {
-      ...headers,
-      authorization: `Bearer ${token}`,
-    },
-    body: JSON.stringify({
-      title: newsData.title,
-      text: newsData.description,
-      date: newsData.publishedAt,
-      source: newsData.source.name,
-      link: newsData.url,
-      image: newsData.urlToImage,
-      keyword: keyword,
-    }),
-  });
+  try {
+    const response = await fetch(`${baseUrl}/articles`, {
+      method: "POST",
+      headers: {
+        ...headers,
+        authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        title: newsData.title,
+        text: newsData.description,
+        date: newsData.publishedAt,
+        source: newsData.source.name,
+        link: newsData.url,
+        image: newsData.urlToImage,
+        keyword: keyword,
+      }),
+    });
+
+    return handleResponse(response);
+  } catch (error) {
+    console.error("There was an error!", error);
+  }
 };
 
-export const removeSavedNews = (card) => {
+export const removeSavedNews = async (card) => {
   const token = localStorage.getItem("token");
 
-  return request(`${baseUrl}/articles/${card._id}`, {
-    method: "DELETE",
-    headers: {
-      ...headers,
-      authorization: `Bearer ${token}`,
-    },
-  });
+  try {
+    const response = await fetch(`${baseUrl}/articles/${card._id}`, {
+      method: "DELETE",
+      headers: {
+        ...headers,
+        authorization: `Bearer ${token}`,
+      },
+    });
+
+    return handleResponse(response);
+  } catch (error) {
+    console.error("There was an error!", error);
+  }
 };
