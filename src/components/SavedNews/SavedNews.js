@@ -16,14 +16,7 @@ const SavedNews = ({ onLogout }) => {
   const { currentPage } = useContext(CurrentPageContext);
   const { searchResults } = useContext(SearchResultContext);
 
-  const [visibleNews, setVisibleNews] = useState(3);
-  const renderMoreNews = () => {
-    setVisibleNews((render) => render + 3);
-  };
-  useEffect(() => {
-    const jwt = localStorage.getItem("token");
-    getSavedNews(jwt).then(setSavedNews);
-  }, [setSavedNews]);
+  const userNews = savedNews.filter((card) => card.owner === currentUser._id);
 
   return (
     <section className="saved__news">
@@ -31,7 +24,14 @@ const SavedNews = ({ onLogout }) => {
       <div className="saved__info">
         <p className="saved__text saved__grey">Saved articles</p>
         <h2 className="saved__title">
-          {currentUser.name}, you have X saved articles
+          {currentUser.name}, you{" "}
+          {userNews.length === 0
+            ? "didn't save any articles yet"
+            : `have ${
+                userNews.length === 1
+                  ? "1 saved article"
+                  : `${userNews.length} saved articles`
+              }`}
         </h2>
         <p className="saved__text">
           By keywords:{" "}

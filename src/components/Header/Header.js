@@ -10,7 +10,10 @@ const Header = ({ onLogin, onLogout, isLoggedIn }) => {
   return (
     <header className="header">
       <button className="header__logo-group">
-        <h2 className="header__logo header__logo-color">NewsExpolorer</h2>
+        <h2 className="header__logo header__logo-color">
+          {" "}
+          <Link to="/">NewsExpolorer</Link>
+        </h2>
       </button>
       {isLoggedIn ? (
         <>
