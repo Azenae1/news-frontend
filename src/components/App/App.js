@@ -21,7 +21,7 @@ import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
 function App() {
   const [activeModal, setActiveModal] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [isSearching, setIsSearching] = useState(false);
   const [isSaved, setIsSaved] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
