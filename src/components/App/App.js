@@ -10,6 +10,7 @@ import { SavedNewsContext } from "../../contexts/SavedNewsContext";
 import { KeywordContext } from "../../contexts/KeywordContext";
 import { getSearchResults } from "../../utils/newsAPI";
 import { signIn, signUp, checkToken } from "../../utils/auth";
+import { addSavedNews, removeSavedNews } from "../../utils/api";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import SavedNews from "../SavedNews/SavedNews";
@@ -107,6 +108,41 @@ function App() {
       });
   };
 
+  const handleSaveCard = async ({ newsData, keyword, token }, isSaved) => {
+    const cardSaved = savedNews.some((card) => card.link === newsData.url);
+
+    const updateNews = (updatedCard, remove = false) => {
+      const updatedsavedNews = remove
+        ? savedNews.filter((card) => card._id !== updatedCard._id)
+        : [updatedCard, ...savedNews];
+
+      setSavedNews(updatedsavedNews);
+
+      const updatedSearchResults = searchResults.map((card) =>
+        card.url === newsData.url ? updatedCard : card
+      );
+
+      setSearchResults(updatedSearchResults);
+    };
+
+    try {
+      if (currentPage === "/" && !cardSaved) {
+        const data = await addSavedNews(newsData, keyword, token);
+        const savedArticleId = data.data._id;
+        const newArticle = { ...newsData, _id: savedArticleId };
+        updateNews(newArticle);
+      } else if (currentPage === "/" && cardSaved) {
+        await removeSavedNews(newsData, token);
+        updateNews({ ...newsData, _id: "" }, true);
+      } else if (currentPage === "/saved-news" && cardSaved) {
+        await removeSavedNews(newsData, token);
+        updateNews({ ...newsData, _id: "" }, true);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <CurrentPageContext.Provider value={{ currentPage, setCurrentPage }}>
       <CurrentUserContext.Provider value={{ currentUser }}>
@@ -127,6 +163,7 @@ function App() {
                           isLoading={isSearching}
                           handleSearch={handleSearch}
                           searchError={searchError}
+                          handleSaveCard={handleSaveCard}
                         />
                       }
                     />
