@@ -44,6 +44,7 @@ const Main = ({
                 onLogin={onLogin}
                 handleSaveCard={handleSaveCard}
                 handleDeleteCard={handleDeleteCard}
+                isLoggedIn={isLoggedIn}
               />
             ) : !isLoading && hasSearched && searchResults.length === 0 ? (
               <NothingFound />

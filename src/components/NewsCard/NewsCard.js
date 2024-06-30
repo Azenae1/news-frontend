@@ -8,13 +8,18 @@ import { CurrentPageContext } from "../../contexts/CurrentPageContext";
 import { SavedNewsContext } from "../../contexts/SavedNewsContext";
 import { KeywordContext } from "../../contexts/KeywordContext";
 
-const NewsCard = ({ newsData, handleDeleteCard, handleSaveCard, onLogin }) => {
+const NewsCard = ({
+  newsData,
+  handleDeleteCard,
+  handleSaveCard,
+  isLoggedIn,
+  onLogin,
+}) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isMarked] = useState(false);
 
   const { keyword } = useContext(KeywordContext);
   const { currentPage, setCurrentPage } = useContext(CurrentPageContext);
-  const { isLoggedIn } = useContext(CurrentUserContext);
   const { savedNews, setSavedNews } = useContext(SavedNewsContext);
 
   const location = useLocation();
@@ -82,7 +87,7 @@ const NewsCard = ({ newsData, handleDeleteCard, handleSaveCard, onLogin }) => {
       {currentPage === "/saved-news" && newsData.keyword && (
         <p className="card__tag">{newsData.keyword}</p>
       )}
-      {isHovered && currentPage !== "/saved-news" && (
+      {isHovered && !isLoggedIn && currentPage !== "/saved-news" && (
         <div className="card__favorite-login">
           <p className="card__favorite-text">Sign in to save articles</p>
         </div>

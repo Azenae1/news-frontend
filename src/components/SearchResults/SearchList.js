@@ -8,11 +8,15 @@ import { SearchResultContext } from "../../contexts/SearchResultContext";
 import { CurrentPageContext } from "../../contexts/CurrentPageContext";
 import { SavedNewsContext } from "../../contexts/SavedNewsContext";
 
-const SearchList = ({ handleDeleteCard, handleSaveCard, onLogin }) => {
+const SearchList = ({
+  handleDeleteCard,
+  handleSaveCard,
+  isLoggedIn,
+  onLogin,
+}) => {
   const { searchResults } = useContext(SearchResultContext);
   const { currentPage, setCurrentPage } = useContext(CurrentPageContext);
   const { setSavedNews } = useContext(SavedNewsContext);
-
   const location = useLocation();
   const [visibleNews, setVisibleNews] = useState(3);
 
@@ -44,6 +48,7 @@ const SearchList = ({ handleDeleteCard, handleSaveCard, onLogin }) => {
               key={news.link}
               handleDeleteCard={handleDeleteCard}
               handleSaveCard={handleSaveCard}
+              isLoggedIn={isLoggedIn}
               onLogin={onLogin}
             />
           );
