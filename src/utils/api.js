@@ -1,5 +1,5 @@
-export const baseUrl = process.env.NODE_ENV === "http://localhost:3000";
-
+export const baseUrl = "http://localhost:3000";
+console.log("Base URL:", baseUrl);
 export const headers = {
   "Content-Type": "application/json",
 };

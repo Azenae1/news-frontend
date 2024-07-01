@@ -31,8 +31,8 @@ const NewsCard = ({
   }, [location.pathname, setCurrentPage]);
 
   useEffect(() => {
-    const jwt = localStorage.getItem("token");
-    getSavedNews(jwt).then(() => {
+    const token = localStorage.getItem("token");
+    getSavedNews(token).then(() => {
       setSavedNews(savedNews);
     });
   }, [setSavedNews, savedNews]);

@@ -110,7 +110,7 @@ function App() {
 
   const handleSaveCard = async ({ newsData, keyword, token }, isSaved) => {
     const cardSaved = savedNews.some((card) => card.link === newsData.url);
-
+    console.log("Token:", token);
     const updateNews = (updatedCard, remove = false) => {
       const updatedsavedNews = remove
         ? savedNews.filter((card) => card._id !== updatedCard._id)
