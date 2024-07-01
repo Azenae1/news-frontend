@@ -22,7 +22,7 @@ import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
 function App() {
   const [activeModal, setActiveModal] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isSearching, setIsSearching] = useState(false);
   const [isSaved, setIsSaved] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
@@ -111,6 +111,7 @@ function App() {
   const handleSaveCard = async ({ newsData, keyword, token }, isSaved) => {
     const cardSaved = savedNews.some((card) => card.link === newsData.url);
     console.log("Token:", token);
+    console.log("News Data:", newsData);
     const updateNews = (updatedCard, remove = false) => {
       const updatedsavedNews = remove
         ? savedNews.filter((card) => card._id !== updatedCard._id)
