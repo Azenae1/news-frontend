@@ -38,6 +38,7 @@ const RegisterModal = ({
   return (
     <ModalWithForm
       title="Sign Up"
+      name="register"
       buttonText={isLoading ? "Saving..." : "Sign up"}
       onClose={handleCloseModal}
       isOpen={isOpen}

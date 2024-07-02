@@ -20,9 +20,16 @@
   background-color: white;
   max-width: 430px;
   /* width: 100%; */
-  height: 433px;
   border-radius: 16px;
   padding: 34px 36px 28px;
+}
+
+.modal__type_login {
+  height: 333px;
+}
+
+.modal__type_register {
+  height: 417px;
 }
 
 .modal__form {
@@ -80,7 +87,8 @@
   border-width: 0cap;
   margin-left: 146px;
   margin-top: 88px;
-  line-height: 20px;
+  font-size: 14px;
+  line-height: 17px;
   position: absolute;
   background-color: white;
   cursor: pointer;
@@ -100,10 +108,11 @@
 }
 
 .modal__input {
-  padding: 0 0 11px;
+  padding: 0 0 10px;
   margin-bottom: 31px;
   font-family: Inter;
   font-size: 14px;
+  line-height: 17px;
   width: 358px;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0);
@@ -112,6 +121,8 @@
 .modal__text {
   margin: 0 0 9px;
   font-family: Inter;
+  font-size: 12px;
+  line-height: 14.5px;
   font-weight: 400;
   color: rgba(47, 113, 229, 1);
 }
