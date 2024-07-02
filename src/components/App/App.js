@@ -36,6 +36,11 @@ function App() {
   const openRegisterModal = () => {
     setActiveModal("signup");
   };
+
+  const openConfirmationModal = () => {
+    setActiveModal("confirm");
+  };
+
   const openLoginModal = () => {
     setActiveModal("login");
   };
@@ -47,8 +52,8 @@ function App() {
   const handleRegister = ({ email, password, name }) => {
     setIsLoading(true);
     signUp(email, password, name)
-      .then((res) => {
-        handleLogin({ email, password });
+      .then(() => {
+        openConfirmationModal();
       })
       .catch(console.error)
       .finally(() => {
@@ -86,9 +91,9 @@ function App() {
   };
 
   const handleRedirect = () => {
-    activeModal === "signup"
-      ? setActiveModal("login")
-      : setActiveModal("signup");
+    activeModal === "login"
+      ? setActiveModal("signup")
+      : setActiveModal("login");
   };
 
   const handleSearch = ({ keyword }) => {
@@ -179,6 +184,13 @@ function App() {
                       onRegister={handleRegister}
                       switchToLogin={handleRedirect}
                       isLoading={isLoading}
+                    />
+                  )}
+                  {activeModal === "confirm" && (
+                    <RegisterCompleteModal
+                      onClose={handleCloseModal}
+                      isOpen
+                      switchToLogin={handleRedirect}
                     />
                   )}
                   {activeModal === "login" && (
