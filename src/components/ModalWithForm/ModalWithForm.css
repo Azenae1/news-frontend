@@ -110,7 +110,7 @@
 .modal__input {
   padding: 0 0 10px;
   margin-bottom: 31px;
-  font-family: Inter;
+  font-family: Inter, Arial, Helvetica, sans-serif;
   font-size: 14px;
   line-height: 17px;
   width: 358px;
@@ -120,7 +120,7 @@
 
 .modal__text {
   margin: 0 0 9px;
-  font-family: Inter;
+  font-family: Inter, Arial, Helvetica, sans-serif;
   font-size: 12px;
   line-height: 14.5px;
   font-weight: 400;

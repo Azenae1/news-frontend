@@ -20,7 +20,7 @@
 .main__title {
   margin-top: 80px;
   margin-bottom: 32px;
-  font-family: "Roboto-slab";
+  font-family: Roboto-slab, Inter, Arial, Helvetica, sans-serif;
   font-weight: 400;
   font-size: 60px;
   line-height: 64px;
@@ -29,7 +29,7 @@
 
 .main__description {
   margin: 0;
-  font-family: "Roboto";
+  font-family: Roboto, Inter, Arial, Helvetica, sans-serif;
   font-size: 18px;
   line-height: 24px;
   color: white;

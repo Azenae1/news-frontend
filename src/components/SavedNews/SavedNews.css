@@ -23,7 +23,7 @@
 
 .saved__text {
   margin: 0;
-  font-family: Roboto;
+  font-family: Roboto, Inter, Arial, Helvetica, sans-serif;
   font-size: 18px;
   line-height: 24px;
   font-weight: 400;
@@ -40,7 +40,7 @@
 .saved__title {
   max-width: 530px;
   margin: 28px 0 30px;
-  font-family: Roboto-slab;
+  font-family: Roboto-slab, Inter, Arial, Helvetica, sans-serif;
   font-size: 40px;
   line-height: 46px;
   font-weight: 400;

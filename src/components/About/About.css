@@ -19,7 +19,7 @@
 
 .about__title {
   margin: 0;
-  font-family: "Roboto-slab";
+  font-family: Roboto-slab, Inter, Arial, Helvetica, sans-serif;
   font-weight: 400;
   font-size: 40px;
   line-height: 46px;
@@ -28,7 +28,7 @@
 .about__description {
   margin-top: 24px;
   margin-bottom: 0;
-  font-family: "Roboto";
+  font-family: Roboto, Inter, Arial, Helvetica, sans-serif;
   font-size: 18px;
   line-height: 24px;
 }
