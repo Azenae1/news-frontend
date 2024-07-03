@@ -3,9 +3,8 @@
   margin: 0 auto;
 }
 
-/* .app__container {
-  background-image: url(../../images/main-background.png);
-  background-repeat: no-repeat;
-  background-position: top;
-  background-size: cover;
-} */
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .app {
+    max-width: 100%;
+  }
+}

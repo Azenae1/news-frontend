@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import "../ModalWithForm/ModalWithForm.css";
 import "./RegisterCompleteModal.css";
 
-function RegisterCompleteModal({ onClose, switchToLogin }) {
+const RegisterCompleteModal = ({ onClose, switchToLogin }) => {
   const regModalRef = useRef();
   useEffect(() => {
     const handleClickOutside = (evt) => {
@@ -46,6 +46,6 @@ function RegisterCompleteModal({ onClose, switchToLogin }) {
       </div>
     </div>
   );
-}
+};
 
 export default RegisterCompleteModal;

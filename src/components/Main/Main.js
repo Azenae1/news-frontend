@@ -9,6 +9,7 @@ import NothingFound from "../NothingFound/NothingFound";
 import Preloader from "../Preloader/Preloader";
 import { HasSearchedContext } from "../../contexts/HasSearchedContext";
 import { SearchResultContext } from "../../contexts/SearchResultContext";
+import MobileHeader from "../MobileHeader/MobileHeader";
 
 const Main = ({
   onLogin,
@@ -18,20 +19,39 @@ const Main = ({
   handleSearch,
   handleSaveCard,
   handleDeleteCard,
+  handleMobileModal,
   searchError,
 }) => {
   const { hasSearched } = useContext(HasSearchedContext);
   const { searchResults } = useContext(SearchResultContext);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleMobile = () => {
+      setIsMobile(window.innerWidth <= 767);
+    };
+
+    window.addEventListener("resize", handleMobile);
+    return () => window.removeEventListener("resize", handleMobile);
+  }, []);
 
   return (
     <main className="main">
       <div className="main__cover">
-        <Header onLogin={onLogin} onLogout={onLogout} isLoggedIn={isLoggedIn} />
+        {isMobile ? (
+          <MobileHeader
+            currentRoute={"main"}
+            handleMobileModal={handleMobileModal}
+          />
+        ) : (
+          <Header
+            onLogin={onLogin}
+            onLogout={onLogout}
+            isLoggedIn={isLoggedIn}
+          />
+        )}
         <section className="main__section">
-          <h1 className="main__title">
-            What's going on in <br />
-            the world?
-          </h1>
+          <h1 className="main__title">What's going on in the world?</h1>
           <p className="main__description">
             Find the latest news on any topic and save them in your personal
             account.
@@ -49,7 +69,7 @@ const Main = ({
             ) : !isLoading && hasSearched && searchResults.length === 0 ? (
               <NothingFound />
             ) : searchError === true ? (
-              <div className="main__search-error_container">
+              <div className={isMobile ? "" : "main__search-error_container"}>
                 <p className="main__search-error">
                   Something went wrong during your request. The server may be
                   down or there are connection issues, please try again later
