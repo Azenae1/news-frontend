@@ -18,6 +18,7 @@ import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterCompleteModal from "../RegisterCompleteModal/RegisterCompleteModal";
 import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
+import MobileNavigation from "../MobileNavigation/MobileNavigation";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
@@ -43,6 +44,10 @@ function App() {
 
   const openLoginModal = () => {
     setActiveModal("login");
+  };
+
+  const openMobileModal = () => {
+    setActiveModal("mobile");
   };
 
   const handleCloseModal = () => {
@@ -170,6 +175,7 @@ function App() {
                           handleSearch={handleSearch}
                           searchError={searchError}
                           handleSaveCard={handleSaveCard}
+                          handleMobileModal={openMobileModal}
                         />
                       }
                     />
@@ -177,6 +183,14 @@ function App() {
                   </Routes>
 
                   <Footer />
+                  {activeModal === "mobile" && (
+                    <MobileNavigation
+                      isLoggedIn={isLoggedIn}
+                      onLogin={handleLogin}
+                      onClose={handleCloseModal}
+                      onLogout={handleLogout}
+                    />
+                  )}
                   {activeModal === "signup" && (
                     <RegisterModal
                       handleCloseModal={handleCloseModal}

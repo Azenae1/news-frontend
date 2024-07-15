@@ -2,14 +2,15 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 
 import "./MobileNavigation.css";
-import { CurrentPageContext } from "../Context/CurrentPageContext";
+import { CurrentPageContext } from "../../contexts/CurrentPageContext";
 
 const MobileNavigation = ({ isLoggedIn, onLogin, onClose, onLogout }) => {
   const { currentPage } = useContext(CurrentPageContext);
+  console.log("Current page:", currentPage);
 
   const handleOverlay = (e) => {
     if (e.target === e.currentTarget) {
-      handleCloseModal();
+      onClose();
     }
   };
 
