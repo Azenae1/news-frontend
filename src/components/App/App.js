@@ -27,7 +27,8 @@ function App() {
   const [isSearching, setIsSearching] = useState(false);
   const [isSaved, setIsSaved] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
-  const [currentPage, setCurrentPage] = useState("");
+  const [currentPage, setCurrentPage] = useState("/");
+  console.log(currentPage);
   const [hasSearched, setHasSearched] = useState("");
   const [savedNews, setSavedNews] = useState([]);
   const [searchResults, setSearchResults] = useState([]);

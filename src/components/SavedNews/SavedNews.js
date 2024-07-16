@@ -9,8 +9,9 @@ import { SavedNewsContext } from "../../contexts/SavedNewsContext";
 import { CurrentPageContext } from "../../contexts/CurrentPageContext";
 import { SearchResultContext } from "../../contexts/SearchResultContext";
 import { getSavedNews } from "../../utils/api";
+import MobileHeader from "../MobileHeader/MobileHeader";
 
-const SavedNews = ({ onLogout }) => {
+const SavedNews = ({ onLogout, handleMobileModal }) => {
   const { currentUser } = useContext(CurrentUserContext);
   const { savedNews, setSavedNews } = useContext(SavedNewsContext);
   const { currentPage } = useContext(CurrentPageContext);
@@ -18,9 +19,27 @@ const SavedNews = ({ onLogout }) => {
 
   const userNews = savedNews.filter((card) => card.owner === currentUser._id);
 
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 767);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <section className="saved__news">
-      <SavedNewsHeader onLogout={onLogout} />
+      {isMobile ? (
+        <MobileHeader
+          currentRoute="saved-news"
+          handleMobileModal={handleMobileModal}
+        />
+      ) : (
+        <SavedNewsHeader onLogout={onLogout} />
+      )}
+
       <div className="saved__info">
         <p className="saved__text saved__grey">Saved articles</p>
         <h2 className="saved__title">
