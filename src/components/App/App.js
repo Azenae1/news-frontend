@@ -19,6 +19,7 @@ import LoginModal from "../LoginModal/LoginModal";
 import RegisterCompleteModal from "../RegisterCompleteModal/RegisterCompleteModal";
 import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
 import MobileNavigation from "../MobileNavigation/MobileNavigation";
+import MobileFooter from "../MobileFooter/MobileFooter";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
@@ -26,14 +27,23 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isSearching, setIsSearching] = useState(false);
   const [isSaved, setIsSaved] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [currentUser, setCurrentUser] = useState({});
   const [currentPage, setCurrentPage] = useState("/");
-  console.log(currentPage);
   const [hasSearched, setHasSearched] = useState("");
   const [savedNews, setSavedNews] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
   const [searchError, setSearchError] = useState(false);
   const [keyword, setKeyword] = useState("");
+
+  useEffect(() => {
+    const handleMobile = () => {
+      setIsMobile(window.innerWidth <= 767);
+    };
+
+    window.addEventListener("resize", handleMobile);
+    return () => window.removeEventListener("resize", handleMobile);
+  }, []);
 
   const openRegisterModal = () => {
     setActiveModal("signup");
@@ -180,10 +190,19 @@ function App() {
                         />
                       }
                     />
-                    <Route exact path="/saved-news" element={<SavedNews />} />
+                    <Route
+                      exact
+                      path="/saved-news"
+                      element={
+                        <SavedNews
+                          onLogout={handleLogout}
+                          handleMobileModal={openMobileModal}
+                        />
+                      }
+                    />
                   </Routes>
+                  {isMobile ? <MobileFooter /> : <Footer />}
 
-                  <Footer />
                   {activeModal === "mobile" && (
                     <MobileNavigation
                       isLoggedIn={isLoggedIn}

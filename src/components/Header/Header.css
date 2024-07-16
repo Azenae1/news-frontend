@@ -3,7 +3,7 @@
   height: 80px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   box-sizing: border-box;
-  padding: 19px 104px 13px;
+  padding: 19px 0 13px;
   display: flex;
   justify-content: space-between;
 }
@@ -25,6 +25,7 @@
   border: none;
   background: transparent;
   cursor: pointer;
+  margin-right: 20px;
 }
 
 .header__button {
