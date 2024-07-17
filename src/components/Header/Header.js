@@ -17,19 +17,23 @@ const Header = ({ onLogin, onLogout, isLoggedIn }) => {
       </button>
       {isLoggedIn ? (
         <>
-          <button
-            type="text"
-            className="header__button header__button-color header__button-home"
-          >
-            <Link to="/">Home</Link>
-            <div className="header__underline"></div>
-          </button>
-          <button
-            type="text"
-            className="header__button header__button-saved header__button_saved-color"
-          >
-            <Link to="/saved-news">Saved articles</Link>
-          </button>
+          <Link to="/">
+            <button
+              type="text"
+              className="header__button header__button-color header__button-home"
+            >
+              Home
+              <div className="header__underline"></div>
+            </button>
+          </Link>
+          <Link to="/saved-news">
+            <button
+              type="text"
+              className="header__button header__button-saved header__button_saved-color"
+            >
+              Saved articles
+            </button>
+          </Link>
           <button
             type="text"
             className="header__button header__button-color header__button-logout"
@@ -45,13 +49,15 @@ const Header = ({ onLogin, onLogout, isLoggedIn }) => {
         </>
       ) : (
         <>
-          <button
-            type="text"
-            className="header__button header__button-home header__button-color"
-          >
-            <Link to="/">Home</Link>
-            <div className="header__underline"></div>
-          </button>
+          <Link to="/">
+            <button
+              type="text"
+              className="header__button header__button-home header__button-color"
+            >
+              Home
+              <div className="header__underline"></div>
+            </button>
+          </Link>
           <button
             type="text"
             className="header__button header__button-signin header__button-color"

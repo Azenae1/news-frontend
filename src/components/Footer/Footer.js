@@ -1,15 +1,26 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import "./Footer.css";
 
 const Footer = () => {
+  const navigate = useNavigate();
+
+  const handleHomeClick = () => {
+    navigate("/");
+    window.scrollTo(0, 0);
+  };
+
   return (
     <footer className="footer">
       <p className="footer__copyright">© 2024 Supersite, Powered by News API</p>
       <div className="footer__buttons">
-        <Link to="/">
-          <button className="footer__button footer__button_text">Home</button>
-        </Link>
+        <button
+          className="footer__button footer__button_text"
+          onClick={handleHomeClick}
+        >
+          Home
+        </button>
+
         <Link to="https://tripleten.com/" target="_blank" rel="noreferrer">
           <button className="footer__button footer__button_text">
             TripleTen
