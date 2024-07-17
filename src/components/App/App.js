@@ -1,4 +1,4 @@
-import React, { Route, Routes } from "react-router-dom";
+import React, { Route, Routes, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import "./App.css";
@@ -17,7 +17,6 @@ import SavedNews from "../SavedNews/SavedNews";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterCompleteModal from "../RegisterCompleteModal/RegisterCompleteModal";
-import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
 import MobileNavigation from "../MobileNavigation/MobileNavigation";
 import MobileFooter from "../MobileFooter/MobileFooter";
 
@@ -35,6 +34,12 @@ function App() {
   const [searchResults, setSearchResults] = useState([]);
   const [searchError, setSearchError] = useState(false);
   const [keyword, setKeyword] = useState("");
+
+  const location = useLocation();
+
+  useEffect(() => {
+    setCurrentPage(location.pathname);
+  }, [location.pathname]);
 
   useEffect(() => {
     const handleMobile = () => {
