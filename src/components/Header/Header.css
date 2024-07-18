@@ -3,7 +3,7 @@
   height: 80px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   box-sizing: border-box;
-  padding: 19px 0 13px;
+  padding: 19px 104px 0;
   display: flex;
   justify-content: space-between;
 }
@@ -29,15 +29,13 @@
 }
 
 .header__button {
-  align-self: center;
+  /* align-self: center; */
   border: none;
   background: transparent;
   padding: 0;
   font-family: Roboto, Inter, Arial, Helvetica, sans-serif;
-  /* font-weight: 500; */
   font-size: 18px;
   line-height: 24px;
-
   cursor: pointer;
 }
 
@@ -46,8 +44,7 @@
 }
 
 .header__button-home {
-  margin-left: auto;
-  margin-right: 42px;
+  margin: 11px 42px 0 auto;
 }
 
 .header__underline {
@@ -68,12 +65,15 @@
 }
 
 .header__button-saved {
-  margin-left: 34px;
-  margin-right: 64px;
+  margin: 11px 64px 0 34px;
 }
 
 .header__button_saved-color {
   color: rgba(182, 188, 191, 1);
+}
+
+.saved-header__button {
+  margin-top: -11px;
 }
 
 .header__button-logout {

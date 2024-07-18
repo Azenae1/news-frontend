@@ -18,11 +18,17 @@ const SavedNewsHeader = ({ onLogout }) => {
         </h2>
       </button>
 
-      <button type="text" className="header__button header__button-home">
+      <button
+        type="text"
+        className="header__button header__button-home saved-header__button"
+      >
         <Link to="/">Home</Link>
       </button>
 
-      <button type="text" className="header__button header__button-saved">
+      <button
+        type="text"
+        className="header__button header__button-saved saved-header__button"
+      >
         <Link to="/saved-news">Saved articles</Link>
         <div className="saved__underline"></div>
       </button>

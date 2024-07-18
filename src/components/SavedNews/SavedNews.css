@@ -1,3 +1,8 @@
+.saved__header {
+  padding: 19px 104px 0;
+  border-bottom: 1px solid rgba(209, 210, 214, 1);
+}
+
 .saved__header-logout {
   border: 1px solid black;
 }
@@ -13,12 +18,13 @@
 }
 
 .saved__news {
-  padding: 0 104px;
+  padding: 0;
   max-width: 1440px;
 }
 
 .saved__info {
   margin: 40px 0 56px;
+  padding: 0 104px;
 }
 
 .saved__text {
@@ -47,7 +53,7 @@
 }
 
 .saved__list {
-  padding-top: 62px;
+  padding: 62px 104px;
   background-color: rgba(245, 246, 247, 1);
 }
 

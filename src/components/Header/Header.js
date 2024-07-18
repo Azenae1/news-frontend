@@ -9,30 +9,26 @@ const Header = ({ onLogin, onLogout, isLoggedIn }) => {
   const { currentUser } = useContext(CurrentUserContext);
   return (
     <header className="header">
-      <button className="header__logo-group">
-        <h2 className="header__logo header__logo-color">
-          {" "}
-          <Link to="/">NewsExpolorer</Link>
-        </h2>
-      </button>
+      <h2 className="header__logo header__logo-color">
+        {" "}
+        <Link to="/">NewsExpolorer</Link>
+      </h2>
+
       {isLoggedIn ? (
         <>
-          <Link to="/">
-            <button
-              type="text"
-              className="header__button header__button-color header__button-home"
-            >
-              Home
-              <div className="header__underline"></div>
-            </button>
+          <Link
+            to="/"
+            className="header__button header__button-color header__button-home"
+          >
+            Home
+            <div className="header__underline"></div>
           </Link>
-          <Link to="/saved-news">
-            <button
-              type="text"
-              className="header__button header__button-saved header__button_saved-color"
-            >
-              Saved articles
-            </button>
+
+          <Link
+            to="/saved-news"
+            className="header__button header__button-saved header__button_saved-color"
+          >
+            Saved articles
           </Link>
           <button
             type="text"
@@ -49,14 +45,12 @@ const Header = ({ onLogin, onLogout, isLoggedIn }) => {
         </>
       ) : (
         <>
-          <Link to="/">
-            <button
-              type="text"
-              className="header__button header__button-home header__button-color"
-            >
-              Home
-              <div className="header__underline"></div>
-            </button>
+          <Link
+            to="/"
+            className="header__button header__button-color header__button-home"
+          >
+            Home
+            <div className="header__underline"></div>
           </Link>
           <button
             type="text"
