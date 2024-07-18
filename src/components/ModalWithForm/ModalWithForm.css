@@ -34,6 +34,8 @@
 
 .modal__form {
   margin: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .modal__form-title {
@@ -81,15 +83,17 @@
   cursor: not-allowed;
 }
 
+.modal__extra-actions {
+  align-self: center;
+}
+
 .modal__form_switch-button {
   color: rgba(0, 0, 0, 0.5);
   padding: 0;
   border-width: 0cap;
-  margin-left: 146px;
-  margin-top: 88px;
+  margin-top: 16px;
   font-size: 14px;
   line-height: 17px;
-  position: absolute;
   background-color: white;
   cursor: pointer;
 }
@@ -161,7 +165,7 @@
 @media screen and (min-width: 320px) and (max-width: 767px) {
   .modal__form-container {
     padding: 16px;
-    height: calc(60vh);
+    /* height: calc(60vh); */
     width: calc(100vw - 32px);
   }
 
@@ -181,7 +185,11 @@
     width: calc(100vw - 32px);
   }
 
-  .modal__input[name="password"] {
+  .modal__password {
+    margin-bottom: 23px;
+  }
+
+  .modal__input[name="name"] {
     margin-bottom: 23px;
   }
 

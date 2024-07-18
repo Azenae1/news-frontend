@@ -10,6 +10,7 @@ const ModalWithForm = ({
   isOpen,
   onSubmit,
   onInputChange,
+  extraActions,
 }) => {
   const formModalRef = useRef();
   const [isFormValid, setIsFormValid] = useState(false);
@@ -62,6 +63,9 @@ const ModalWithForm = ({
           >
             {buttonText}
           </button>
+          {extraActions && (
+            <div className="modal__extra-actions">{extraActions}</div>
+          )}
         </form>
       </div>
     </div>

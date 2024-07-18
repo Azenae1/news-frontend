@@ -35,6 +35,16 @@ const RegisterModal = ({
     onRegister({ name, password, email });
   };
 
+  const extraActions = (
+    <button
+      className="modal__form_switch-button"
+      onClick={switchToLogin}
+      type="button"
+    >
+      or <span className="modal__form_switch-button_text">Sign in</span>
+    </button>
+  );
+
   return (
     <ModalWithForm
       title="Sign Up"
@@ -44,6 +54,7 @@ const RegisterModal = ({
       isOpen={isOpen}
       onSubmit={handleSubmit}
       onInputChange={validateForm}
+      extraActions={extraActions}
     >
       <div className="modal__form-field">
         <label>
@@ -92,14 +103,6 @@ const RegisterModal = ({
           />
         </label>
       </div>
-
-      <button
-        className="modal__form_switch-button"
-        onClick={switchToLogin}
-        type="button"
-      >
-        or <span className="modal__form_switch-button_text"> Sign in</span>
-      </button>
     </ModalWithForm>
   );
 };

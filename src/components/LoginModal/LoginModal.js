@@ -26,6 +26,16 @@ const LoginModal = ({
     onLogin({ email, password });
   };
 
+  const extraActions = (
+    <button
+      className="modal__form_switch-button"
+      onClick={switchToRegister}
+      type="button"
+    >
+      or <span className="modal__form_switch-button_text">Sign up</span>
+    </button>
+  );
+
   return (
     <div className="modal__login-container">
       <ModalWithForm
@@ -36,6 +46,7 @@ const LoginModal = ({
         isOpen={isOpen}
         onSubmit={handleSubmit}
         onInputChange={validateForm}
+        extraActions={extraActions}
       >
         <div className="modal__form-field">
           <label>
@@ -48,7 +59,7 @@ const LoginModal = ({
               maxLength="30"
               required
               placeholder="Email"
-              className="modal__input"
+              className="modal__input modal__password"
               onChange={handleEmailChange}
             />
           </label>
@@ -67,15 +78,6 @@ const LoginModal = ({
               onChange={handlePasswordChange}
             />
           </label>
-        </div>
-        <div className="login">
-          <button
-            className="modal__form_switch-button"
-            onClick={switchToRegister}
-            type="button"
-          >
-            or <span className="modal__form_switch-button_text"> Sign up</span>
-          </button>
         </div>
       </ModalWithForm>
     </div>
