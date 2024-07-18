@@ -89,5 +89,6 @@
   .saved__list {
     padding: 40px 16px 13px;
     margin: 0;
+    display: flex;
   }
 }
