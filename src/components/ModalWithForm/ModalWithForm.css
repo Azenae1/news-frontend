@@ -157,3 +157,35 @@
 .modal__switch:hover {
   opacity: 0.6;
 }
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .modal__form-container {
+    padding: 16px;
+    height: calc(60vh);
+    width: calc(100vw - 32px);
+  }
+
+  .modal__form_close-button {
+    width: 24px;
+    height: 24px;
+    top: -40px;
+    right: 16px;
+  }
+
+  .modal__form-title {
+    line-height: 28px;
+    margin: 0 0 18px;
+  }
+
+  .modal__input {
+    width: calc(100vw - 32px);
+  }
+
+  .modal__input[name="password"] {
+    margin-bottom: 23px;
+  }
+
+  .modal__form_submit-button {
+    width: calc(100vw - 32px);
+  }
+}

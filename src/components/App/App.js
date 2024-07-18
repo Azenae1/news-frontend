@@ -211,7 +211,7 @@ function App() {
                   {activeModal === "mobile" && (
                     <MobileNavigation
                       isLoggedIn={isLoggedIn}
-                      onLogin={handleLogin}
+                      onLogin={openLoginModal}
                       onClose={handleCloseModal}
                       onLogout={handleLogout}
                     />
