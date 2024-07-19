@@ -7,7 +7,13 @@ const About = () => {
       <img src={Author} alt="Yury" className="about__avatar" />
       <div className="about__text">
         <h2 className="about__title">About the author</h2>
-        <p className="about__description">some info about me</p>
+        <p className="about__description">
+          some info about me some info about me some info about me some info
+          about me some info about me some info about me some info about me some
+          info about me some info about me some info about me some info about me
+          some info about me some info about me some info about me some info
+          about me{" "}
+        </p>
       </div>
     </section>
   );

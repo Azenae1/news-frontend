@@ -49,3 +49,11 @@
   height: 24px;
   width: 24px;
 }
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .footer {
+    max-width: 1279px;
+    height: 64px;
+    padding: 0 40px 0;
+  }
+}
