@@ -61,7 +61,7 @@
   }
 
   .about__description {
-    max-width: 424px;
+    max-width: calc(100vw - 344px);
     margin-top: 16px;
   }
 }
