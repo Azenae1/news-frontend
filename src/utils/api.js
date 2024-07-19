@@ -107,7 +107,7 @@ export function getSavedNews() {
         publishedAt: "Updated 9:23 PM EDT, June 27, 2024",
         content:
           "Beneath its playful exterior, the beloved game that inspired a generation of real-world urban designers betrays a partisan view of social planning.",
-        keyword: "keyword",
+        keyword: "giraffe",
       },
       {
         id: "65f7368dfb74bd6a92114c85",
@@ -121,7 +121,7 @@ export function getSavedNews() {
         publishedAt: "Updated 9:23 PM EDT, June 27, 2024",
         content:
           "Beneath its playful exterior, the beloved game that inspired a generation of real-world urban designers betrays a partisan view of social planning.",
-        keyword: "keyword",
+        keyword: "cat",
       },
       {
         id: "65f7368dfb74bd6a92114c85",
@@ -135,7 +135,7 @@ export function getSavedNews() {
         publishedAt: "Updated 9:23 PM EDT, June 27, 2024",
         content:
           "Beneath its playful exterior, the beloved game that inspired a generation of real-world urban designers betrays a partisan view of social planning.",
-        keyword: "keyword",
+        keyword: "raccoon",
       },
     ])
   );

@@ -37,7 +37,7 @@ import { baseUrl, headers, handleResponse } from "./api";
 
 //Simulation
 
-export const signUp = (email, password) => {
+export const signIn = (email, password) => {
   return new Promise((resolve, reject) => {
     resolve({ token: "a fake token" });
   });
@@ -51,7 +51,7 @@ export const checkToken = (token) => {
   });
 };
 
-export const signIn = (email, password, name) => {
+export const signUp = (email, password, name) => {
   return new Promise((resolve, reject) => {
     resolve({
       data: { name: "fake user", email: "fake@example.com", id: "fake-id" },

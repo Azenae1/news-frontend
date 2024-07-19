@@ -1,4 +1,5 @@
 .notfound {
+  width: 100vw;
   height: 374px;
   background-color: rgba(245, 246, 247, 1);
   display: flex;
