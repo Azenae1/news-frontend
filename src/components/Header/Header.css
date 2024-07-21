@@ -108,11 +108,18 @@
   }
 
   .header__button {
+    height: 24px;
     font-size: 16px;
   }
 
   .header__button-home {
     margin: 8px 16px 0 auto;
+  }
+
+  .header__button-saved {
+    width: 160px;
+    margin: 8px 16px 0 0;
+    text-align: center;
   }
 
   .header__underline {
@@ -122,6 +129,9 @@
 
   .header__button-signin {
     width: 152px;
+    height: 40px;
+  }
+  .header__button-logout {
     height: 40px;
   }
 }
