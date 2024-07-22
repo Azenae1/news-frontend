@@ -24,7 +24,7 @@
   background-color: transparent;
   border: none;
   color: #ffffff;
-  font-family: Roboto-Slab, Roboto, Inter, Arial, Helvetica, sans-serif;
+  font-family: "Roboto Slab", "Inter", Arial, Helvetica, sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
@@ -41,7 +41,7 @@
 }
 
 .mobile-header__button_news-explorer-saved-news {
-  font-family: Roboto-Slab, Inter, Arial, Helvetica, sans-serif;
+  font-family: "Roboto Slab", "Inter", Arial, Helvetica, sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;

@@ -19,7 +19,7 @@
 
 .about__title {
   margin: 0;
-  font-family: Roboto-slab, Inter, Arial, Helvetica, sans-serif;
+  font-family: "Roboto Slab", "Inter", Arial, Helvetica, sans-serif;
   font-weight: 400;
   font-size: 40px;
   line-height: 46px;
@@ -29,7 +29,7 @@
   margin-top: 24px;
   margin-bottom: 0;
   max-width: 600px;
-  font-family: Roboto, Inter, Arial, Helvetica, sans-serif;
+  font-family: "Roboto", "Inter", Arial, Helvetica, sans-serif;
   font-size: 18px;
   line-height: 24px;
 }
@@ -84,7 +84,7 @@
 
   .about__title {
     max-width: 288px;
-    font-family: "Roboto-Slab", "Inter", Arial, Helvetica, sans-serif;
+    font-family: "Roboto Slab", "Inter", Arial, Helvetica, sans-serif;
     font-size: 30px;
     line-height: 40px;
     text-align: left;
