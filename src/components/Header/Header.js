@@ -16,23 +16,20 @@ const Header = ({ onLogin, onLogout, isLoggedIn }) => {
 
       {isLoggedIn ? (
         <nav style={{ display: "flex" }}>
-          <Link
-            to="/"
-            className="header__button header__button-color header__button-home"
-          >
+          <Link to="/" className="header__button header__button-home">
             Home
             <div className="header__underline"></div>
           </Link>
 
           <Link
             to="/saved-news"
-            className="header__button header__button-saved header__button_saved-color"
+            className="header__button header__button-saved"
           >
             Saved articles
           </Link>
           <button
             type="text"
-            className="header__button header__button-color header__button-logout"
+            className="header__button header__button-logout"
             onClick={onLogout}
           >
             <p className="header__button-text">{currentUser.name}</p>

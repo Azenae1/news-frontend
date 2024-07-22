@@ -67,7 +67,7 @@ const SavedNews = ({ onLogout, handleMobileModal }) => {
   }, []);
 
   return (
-    <section className="saved__news">
+    <section className="saved-news">
       {isMobile ? (
         <MobileHeader
           currentRoute="saved-news"
@@ -77,9 +77,9 @@ const SavedNews = ({ onLogout, handleMobileModal }) => {
         <SavedNewsHeader onLogout={onLogout} />
       )}
 
-      <div className="saved__info">
-        <p className="saved__text saved__grey">Saved articles</p>
-        <h2 className="saved__title">
+      <div className="saved-news__info">
+        <p className="saved-news__text saved-news__grey">Saved articles</p>
+        <h2 className="saved-news__title">
           {currentUser.name}, you{" "}
           {userNews.length === 0
             ? "didn't save any articles yet"
@@ -89,8 +89,9 @@ const SavedNews = ({ onLogout, handleMobileModal }) => {
                   : `${userNews.length} saved articles`
               }`}
         </h2>
-        <p className="saved__text">
-          By keywords: <span className="saved__text-bold">{keywordString}</span>
+        <p className="saved-news__text">
+          By keywords:{" "}
+          <span className="saved-news__text-bold">{keywordString}</span>
         </p>
       </div>
       <SavedNewsList />

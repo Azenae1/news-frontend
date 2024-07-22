@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext, useEffect } from "react";
 
 import "../SavedNews/SavedNews.css";
 import NewsCard from "../NewsCard/NewsCard";
@@ -23,7 +23,7 @@ const SavedNewsList = ({
   }, [setSavedNews]);
 
   return (
-    <ul className="saved__list searchlist__cards">
+    <ul className="saved-news__list searchlist__cards">
       {savedNews
         .filter((card) => card.owner === currentUser._id)
         .map((cards) => (

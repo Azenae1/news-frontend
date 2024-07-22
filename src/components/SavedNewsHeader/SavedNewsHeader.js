@@ -10,7 +10,7 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 const SavedNewsHeader = ({ onLogout }) => {
   const { currentUser } = useContext(CurrentUserContext);
   return (
-    <section className="header saved__header">
+    <section className="header saved-news__header">
       <button className="header__logo-group">
         <h2 className="header__logo">
           {" "}
@@ -20,22 +20,22 @@ const SavedNewsHeader = ({ onLogout }) => {
       <nav style={{ display: "flex" }}>
         <button
           type="text"
-          className="header__button header__button-home saved-header__button"
+          className="header__button header__button-home saved-news__header-button"
         >
           <Link to="/">Home</Link>
         </button>
 
         <button
           type="text"
-          className="header__button header__button-saved saved-header__button"
+          className="header__button header__button-saved saved-news__header-button"
         >
           <Link to="/saved-news">Saved articles</Link>
-          <div className="saved__underline"></div>
+          <div className="saved-news__underline"></div>
         </button>
 
         <button
           type="text"
-          className="header__button saved__header-logout header__button-logout "
+          className="header__button saved-news__header-logout header__button-logout "
           onClick={onLogout}
         >
           <p className="header__button-text">{currentUser.name}</p>

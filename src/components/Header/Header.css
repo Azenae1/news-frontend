@@ -37,9 +37,6 @@
   font-size: 18px;
   line-height: 24px;
   cursor: pointer;
-}
-
-.header__button-color {
   color: white;
 }
 
@@ -66,14 +63,7 @@
 
 .header__button-saved {
   margin: 11px 64px 0 34px;
-}
-
-.header__button_saved-color {
   color: rgba(182, 188, 191, 1);
-}
-
-.saved-header__button {
-  margin-top: -11px;
 }
 
 .header__button-logout {
