@@ -115,9 +115,9 @@ export function getSavedNews() {
         title: "‘SimCity’ Isn’t a Model of Reality. It’s a Libertarian Toy...",
         description:
           "Beneath its playful exterior, the beloved game that inspired a generation of real-world urban designers betrays a partisan view of social planning.",
-        link: "https://apnews.com/arthttps://www.wired.com/story/simcity-libertarian-toy-land/#:~:text=Model%20of%20Reality.-,It's%20a%20Libertarian%20Toy%20Land,partisan%20view%20of%20social%20planning.icle/pga-championship-glance-valhalla-cf9331b47d0320a02bc92e67fbf26e6f",
+        link: "https://www.bbc.com/news/world-us-canada-67285325",
         urlToImage:
-          "https://media.wired.com/photos/667c76c517180f5bf41ab863/191:100/w_1280,c_limit/062624-excerpt-simcity-kelly-clancy.jpg",
+          "https://ichef.bbci.co.uk/news/1024/cpsprodpb/10FE7/production/_133470696_us-elec-guide-976-header-nc-1.png.webp",
         publishedAt: "Updated 9:23 PM EDT, June 27, 2024",
         content:
           "Beneath its playful exterior, the beloved game that inspired a generation of real-world urban designers betrays a partisan view of social planning.",
@@ -129,9 +129,9 @@ export function getSavedNews() {
         title: "‘SimCity’ Isn’t a Model of Reality. It’s a Libertarian Toy...",
         description:
           "Beneath its playful exterior, the beloved game that inspired a generation of real-world urban designers betrays a partisan view of social planning.",
-        link: "https://apnews.com/arthttps://www.wired.com/story/simcity-libertarian-toy-land/#:~:text=Model%20of%20Reality.-,It's%20a%20Libertarian%20Toy%20Land,partisan%20view%20of%20social%20planning.icle/pga-championship-glance-valhalla-cf9331b47d0320a02bc92e67fbf26e6f",
+        link: "https://www.bbc.com/news/articles/c16j896003xo",
         urlToImage:
-          "https://media.wired.com/photos/667c76c517180f5bf41ab863/191:100/w_1280,c_limit/062624-excerpt-simcity-kelly-clancy.jpg",
+          "https://ichef.bbci.co.uk/news/1024/cpsprodpb/f49d/live/1c4a9520-4396-11ef-9b44-55b14f49e9b4.jpg.webp",
         publishedAt: "Updated 9:23 PM EDT, June 27, 2024",
         content:
           "Beneath its playful exterior, the beloved game that inspired a generation of real-world urban designers betrays a partisan view of social planning.",
