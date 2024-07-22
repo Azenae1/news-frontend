@@ -15,7 +15,7 @@ const Header = ({ onLogin, onLogout, isLoggedIn }) => {
       </h2>
 
       {isLoggedIn ? (
-        <>
+        <nav style={{ display: "flex" }}>
           <Link
             to="/"
             className="header__button header__button-color header__button-home"
@@ -42,9 +42,9 @@ const Header = ({ onLogin, onLogout, isLoggedIn }) => {
               alt="header-logout"
             ></img>
           </button>
-        </>
+        </nav>
       ) : (
-        <>
+        <nav style={{ display: "flex" }}>
           <Link
             to="/"
             className="header__button header__button-color header__button-home"
@@ -59,7 +59,7 @@ const Header = ({ onLogin, onLogout, isLoggedIn }) => {
           >
             Sign in
           </button>
-        </>
+        </nav>
       )}
     </header>
   );

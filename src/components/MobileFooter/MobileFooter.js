@@ -13,7 +13,7 @@ const MobileFooter = () => {
 
   return (
     <footer className="footer mobile-footer">
-      <div className="mobile-footer_buttons">
+      <nav className="mobile-footer_buttons">
         <div className="footer__buttons-left">
           <button
             className="footer__button footer__button_text"
@@ -21,10 +21,13 @@ const MobileFooter = () => {
           >
             Home
           </button>
-          <Link to="https://tripleten.com/" target="_blank" rel="noreferrer">
-            <button className="footer__button footer__button_text">
-              TripleTen
-            </button>
+          <Link
+            to="https://tripleten.com/"
+            target="_blank"
+            rel="noreferrer"
+            className="footer__button footer__button_text"
+          >
+            TripleTen
           </Link>
         </div>
         <div className="footer__buttons-right">
@@ -32,19 +35,17 @@ const MobileFooter = () => {
             to="https://github.com/Azenae1"
             target="_blank"
             rel="noreferrer"
-          >
-            <button className="footer__button footer__button_GH"></button>
-          </Link>
+            className="footer__button footer__button_GH"
+          ></Link>
 
           <Link
             to="https://www.linkedin.com/in/yury-bursian/"
             target="_blank"
             rel="noreferrer"
-          >
-            <button className="footer__button footer__button_LI"></button>
-          </Link>
+            className="footer__button footer__button_LI"
+          ></Link>
         </div>
-      </div>
+      </nav>
       <p className="footer__copyright mobile-footer__copyright">
         © 2024 Supersite, Powered by News API
       </p>

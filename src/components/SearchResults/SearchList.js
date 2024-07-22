@@ -45,7 +45,7 @@ const SearchList = ({
           return (
             <NewsCard
               newsData={news}
-              key={news.link}
+              key={news.url}
               handleDeleteCard={handleDeleteCard}
               handleSaveCard={handleSaveCard}
               isLoggedIn={isLoggedIn}

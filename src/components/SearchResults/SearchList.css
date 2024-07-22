@@ -8,8 +8,10 @@
 
 .searchlist__cards {
   padding: 0;
+  margin: 64px auto;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 16px;
 }
 
@@ -24,7 +26,7 @@
 .searchlist__button {
   max-width: 288px;
   height: 56px;
-  margin-top: 48px;
+  /* margin-top: 48px; */
   padding: 17px 90px;
   background-color: #fff;
   border: none;

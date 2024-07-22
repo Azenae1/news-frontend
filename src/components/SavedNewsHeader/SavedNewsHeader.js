@@ -17,34 +17,35 @@ const SavedNewsHeader = ({ onLogout }) => {
           <Link to="/">NewsExpolorer</Link>
         </h2>
       </button>
+      <nav style={{ display: "flex" }}>
+        <button
+          type="text"
+          className="header__button header__button-home saved-header__button"
+        >
+          <Link to="/">Home</Link>
+        </button>
 
-      <button
-        type="text"
-        className="header__button header__button-home saved-header__button"
-      >
-        <Link to="/">Home</Link>
-      </button>
+        <button
+          type="text"
+          className="header__button header__button-saved saved-header__button"
+        >
+          <Link to="/saved-news">Saved articles</Link>
+          <div className="saved__underline"></div>
+        </button>
 
-      <button
-        type="text"
-        className="header__button header__button-saved saved-header__button"
-      >
-        <Link to="/saved-news">Saved articles</Link>
-        <div className="saved__underline"></div>
-      </button>
-
-      <button
-        type="text"
-        className="header__button saved__header-logout header__button-logout "
-        onClick={onLogout}
-      >
-        <p className="header__button-text">{currentUser.name}</p>
-        <img
-          src={logout}
-          className="header__logout-img"
-          alt="header-logout"
-        ></img>
-      </button>
+        <button
+          type="text"
+          className="header__button saved__header-logout header__button-logout "
+          onClick={onLogout}
+        >
+          <p className="header__button-text">{currentUser.name}</p>
+          <img
+            src={logout}
+            className="header__logout-img"
+            alt="header-logout"
+          ></img>
+        </button>
+      </nav>
     </section>
   );
 };

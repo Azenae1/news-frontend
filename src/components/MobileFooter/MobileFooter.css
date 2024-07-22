@@ -1,5 +1,5 @@
 .mobile-footer {
-  padding: 0;
+  padding: 0 16px;
   margin: 20px 0 22px;
   height: auto;
   max-width: 767px;
@@ -9,27 +9,25 @@
 
 .mobile-footer_buttons {
   display: flex;
-  gap: 80px;
-}
-
-.footer__buttons-left,
-.footer__buttons-right {
-  display: flex;
-  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .footer__buttons-left {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  gap: 10px;
 }
 
 .footer__buttons-right {
+  display: flex;
   justify-content: flex-end;
+  gap: 24px;
+  align-self: baseline;
 }
 
 .mobile-footer__copyright {
   margin-top: 38px;
-  margin-bottom: 22px;
   text-align: left;
 }
