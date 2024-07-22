@@ -6,7 +6,7 @@
   background-image: url(../../images/main-background.png);
   background-repeat: no-repeat;
   background-position: top;
-  background-size: cover;
+  background-size: auto;
 }
 
 .main__section {
