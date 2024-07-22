@@ -13,8 +13,6 @@
   align-items: center;
   z-index: 99;
   padding: 0 19px;
-  max-width: 1440px;
-  width: 100%;
 }
 
 .preloader__circle {
