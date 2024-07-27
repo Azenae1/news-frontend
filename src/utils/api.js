@@ -1,5 +1,4 @@
-export const baseUrl = "http://localhost:3000";
-console.log("Base URL:", baseUrl);
+export const baseUrl = "http://localhost:3001";
 export const headers = {
   "Content-Type": "application/json",
 };

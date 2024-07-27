@@ -82,22 +82,46 @@ function App() {
       });
   };
 
+  // const handleLogin = ({ email, password }) => {
+  //   setIsLoading(true);
+  //   signIn(email, password)
+  //     .then((res) => {
+  //       if (res) {
+  //         localStorage.setItem("token", res.token);
+  //         setIsLoggedIn(true);
+  //         handleCloseModal();
+  //       }
+  //       checkToken(res.token)
+  //         .then((data) => {
+  //           setCurrentUser(data);
+  //         })
+  //         .catch(console.error);
+  //     })
+  //     .catch(console.error)
+  //     .finally(() => {
+  //       setIsLoading(false);
+  //     });
+  // };
   const handleLogin = ({ email, password }) => {
     setIsLoading(true);
+
     signIn(email, password)
       .then((res) => {
-        if (res) {
+        if (res && res.token) {
           localStorage.setItem("token", res.token);
           setIsLoggedIn(true);
           handleCloseModal();
+
+          return checkToken(res.token);
         }
-        checkToken(res.token)
-          .then((data) => {
-            setCurrentUser(data);
-          })
-          .catch(console.error);
+        throw new Error("Login failed");
       })
-      .catch(console.error)
+      .then((data) => {
+        setCurrentUser(data);
+      })
+      .catch((err) => {
+        console.error(err);
+      })
       .finally(() => {
         setIsLoading(false);
       });
@@ -172,7 +196,7 @@ function App() {
 
   return (
     <CurrentPageContext.Provider value={{ currentPage, setCurrentPage }}>
-      <CurrentUserContext.Provider value={{ currentUser }}>
+      <CurrentUserContext.Provider value={{ currentUser, setCurrentUser }}>
         <SavedNewsContext.Provider value={{ savedNews, setSavedNews }}>
           <HasSearchedContext.Provider value={{ hasSearched }}>
             <SearchResultContext.Provider value={{ searchResults }}>
