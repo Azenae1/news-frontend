@@ -107,28 +107,21 @@ function App() {
 
     signIn(email, password)
       .then((res) => {
-        console.log("SignIn response:", res);
-        if (res && res.token) {
+        // console.log("SignIn response:", res);
+        if (res) {
           localStorage.setItem("token", res.token);
           setIsLoggedIn(true);
           handleCloseModal();
-
-          return checkToken(res.token);
         }
-        throw new Error("Login failed");
+        checkToken(res.token)
+          .then(({ data }) => {
+            // console.log("Data received:", data);
+            setCurrentUser(data);
+            // console.log("CurrentUser set:", data.data);
+          })
+          .catch(console.error);
       })
-      .then(({ data }) => {
-        console.log("Data received:", data);
-        if (data && data.data) {
-          setCurrentUser(data.data);
-          console.log("CurrentUser set:", data.data);
-        } else {
-          throw new Error("No data received");
-        }
-      })
-      .catch((err) => {
-        console.error(err);
-      })
+      .catch(console.error)
       .finally(() => {
         setIsLoading(false);
       });
