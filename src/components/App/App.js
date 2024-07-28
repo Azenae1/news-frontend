@@ -24,6 +24,7 @@ function App() {
   const [activeModal, setActiveModal] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedInLoading, setIsLoggedInLoading] = useState(true);
   const [isSearching, setIsSearching] = useState(false);
   const [isSaved, setIsSaved] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
@@ -114,7 +115,7 @@ function App() {
           handleCloseModal();
         }
         checkToken(res.token)
-          .then(({ data }) => {
+          .then((data) => {
             // console.log("Data received:", data);
             setCurrentUser(data);
             // console.log("CurrentUser set:", data.data);
@@ -193,6 +194,21 @@ function App() {
       console.log(err);
     }
   };
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      checkToken(token)
+        .then((res) => {
+          setCurrentUser(res);
+          setIsLoggedIn(true);
+        })
+        .catch(console.error)
+        .finally(() => setIsLoggedInLoading(false));
+    } else {
+      setIsLoggedInLoading(false);
+    }
+  }, []);
 
   return (
     <CurrentPageContext.Provider value={{ currentPage, setCurrentPage }}>
