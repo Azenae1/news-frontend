@@ -107,6 +107,7 @@ function App() {
 
     signIn(email, password)
       .then((res) => {
+        console.log("SignIn response:", res);
         if (res && res.token) {
           localStorage.setItem("token", res.token);
           setIsLoggedIn(true);
@@ -116,9 +117,14 @@ function App() {
         }
         throw new Error("Login failed");
       })
-      .then((data) => {
-        setCurrentUser(data);
-        console.log(currentUser);
+      .then(({ data }) => {
+        console.log("Data received:", data);
+        if (data && data.data) {
+          setCurrentUser(data.data);
+          console.log("CurrentUser set:", data.data);
+        } else {
+          throw new Error("No data received");
+        }
       })
       .catch((err) => {
         console.error(err);

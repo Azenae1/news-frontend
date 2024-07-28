@@ -32,6 +32,11 @@ export const checkToken = (token) => {
       ...headers,
       authorization: `Bearer ${token}`,
     },
+  }).then((res) => {
+    if (!res.ok) {
+      throw new Error("Failed to check token");
+    }
+    return res.json();
   });
 };
 

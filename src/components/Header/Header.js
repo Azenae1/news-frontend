@@ -33,7 +33,9 @@ const Header = ({ onLogin, onLogout, isLoggedIn }) => {
             className="header__button header__button-logout"
             onClick={onLogout}
           >
-            <p className="header__button-text">{currentUser.name}</p>
+            <p className="header__button-text">
+              {currentUser.name ? currentUser.name : "Loading..."}
+            </p>
             <img
               src={logout}
               className="header__logout-img"
