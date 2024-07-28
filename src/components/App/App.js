@@ -118,6 +118,7 @@ function App() {
       })
       .then((data) => {
         setCurrentUser(data);
+        console.log(currentUser);
       })
       .catch((err) => {
         console.error(err);

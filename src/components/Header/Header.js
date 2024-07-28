@@ -7,7 +7,7 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 const Header = ({ onLogin, onLogout, isLoggedIn }) => {
   const { currentUser } = useContext(CurrentUserContext);
-  console.log(currentUser);
+
   return (
     <header className="header">
       <h2 className="header__logo header__logo-color">
