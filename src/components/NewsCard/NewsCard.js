@@ -16,15 +16,14 @@ const NewsCard = ({
   onLogin,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
-  const [isMarked] = useState(false);
-
   const { keyword } = useContext(KeywordContext);
   const { currentPage, setCurrentPage } = useContext(CurrentPageContext);
   const { savedNews, setSavedNews } = useContext(SavedNewsContext);
 
   const location = useLocation();
 
-  const isSaved = savedNews.find((card) => card.link === newsData.url);
+  const isSaved = savedNews.some((card) => card.link === newsData.url);
+  // console.log("Is saved:", isSaved, newsData.url);
 
   useEffect(() => {
     setCurrentPage(location.pathname);
@@ -32,15 +31,21 @@ const NewsCard = ({
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    getSavedNews(token).then(() => {
-      setSavedNews(savedNews);
-    });
-  }, [setSavedNews, savedNews]);
+    if (token) {
+      getSavedNews(token).then((news) => {
+        setSavedNews(news);
+      });
+    }
+  }, [setSavedNews]);
 
   const handleFavorite = () => {
     const token = localStorage.getItem("token");
     if (isLoggedIn) {
-      handleSaveCard({ newsData, keyword, token });
+      handleSaveCard({ newsData, keyword, token }).then(() => {
+        getSavedNews(token).then((news) => {
+          setSavedNews(news);
+        });
+      });
     } else {
       onLogin();
     }
@@ -62,7 +67,9 @@ const NewsCard = ({
   const iconClass =
     currentPage === "/saved-news"
       ? "card__delete-button"
-      : "card__favorite-button";
+      : `card__favorite-button ${
+          isSaved ? "card__favorite-button_pressed" : ""
+        }`;
 
   return (
     <li className="card">
@@ -74,7 +81,7 @@ const NewsCard = ({
         <button
           className={iconClass}
           type="button"
-          onClick={!isMarked ? handleFavorite : handleRemoveFavorite}
+          onClick={isSaved ? handleRemoveFavorite : handleFavorite}
         ></button>
       </div>
       <img

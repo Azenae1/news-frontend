@@ -26,9 +26,7 @@ export const getSavedNews = async () => {
   }
 };
 
-export const addSavedNews = async (newsData, keyword) => {
-  const token = localStorage.getItem("token");
-
+export const addSavedNews = async (newsData, keyword, token) => {
   try {
     const response = await fetch(`${baseUrl}/articles`, {
       method: "POST",
@@ -47,16 +45,19 @@ export const addSavedNews = async (newsData, keyword) => {
       }),
     });
 
-    return handleResponse(response);
+    if (!response.ok) {
+      throw new Error(`Error: ${response.statusText}`);
+    }
+    const data = await response.json();
+    // console.log("Article saved response:", data);
+    return data;
   } catch (error) {
     console.error("There was an error!", error);
-    return [];
+    return null;
   }
 };
 
-export const removeSavedNews = async (card) => {
-  const token = localStorage.getItem("token");
-
+export const removeSavedNews = async (card, token) => {
   try {
     const response = await fetch(`${baseUrl}/articles/${card._id}`, {
       method: "DELETE",
@@ -66,10 +67,15 @@ export const removeSavedNews = async (card) => {
       },
     });
 
-    return handleResponse(response);
+    if (!response.ok) {
+      throw new Error(`Error: ${response.statusText}`);
+    }
+    const data = await response.json();
+    // console.log("Article removed response:", data);
+    return data;
   } catch (error) {
     console.error("There was an error!", error);
-    return [];
+    return null;
   }
 };
 

@@ -164,11 +164,13 @@ function App() {
     // console.log("Keyword:", keyword);
     // console.log("News Data:", newsData);
     const updateNews = (updatedCard, remove = false) => {
-      const updatedsavedNews = remove
+      // console.log("Updating news:", updatedCard, remove);
+      const updatedSavedNews = remove
         ? savedNews.filter((card) => card._id !== updatedCard._id)
         : [updatedCard, ...savedNews];
 
-      setSavedNews(updatedsavedNews);
+      setSavedNews(updatedSavedNews);
+      // console.log("Updated saved news:", updatedSavedNews);
 
       const updatedSearchResults = searchResults.map((card) =>
         card.url === newsData.url ? updatedCard : card
@@ -178,17 +180,31 @@ function App() {
     };
 
     try {
-      if (currentPage === "/" && !cardSaved) {
-        const data = await addSavedNews(newsData, keyword, token);
-        const savedArticleId = data.data._id;
-        const newArticle = { ...newsData, _id: savedArticleId };
-        updateNews(newArticle);
-      } else if (currentPage === "/" && cardSaved) {
-        await removeSavedNews(newsData, token);
-        updateNews({ ...newsData, _id: "" }, true);
-      } else if (currentPage === "/saved-news" && cardSaved) {
-        await removeSavedNews(newsData, token);
-        updateNews({ ...newsData, _id: "" }, true);
+      if (!cardSaved) {
+        const response = await addSavedNews(newsData, keyword, token);
+
+        if (response && response.data && response.data._id) {
+          const newArticle = {
+            ...newsData,
+            _id: response.data._id,
+            isSaved: true,
+          };
+          updateNews(newArticle);
+          // console.log("New article saved:", newArticle);
+        } else {
+          throw new Error("Failed to save article");
+        }
+      } else {
+        const cardToDelete = savedNews.find(
+          (card) => card.link === newsData.url
+        );
+        if (cardToDelete && cardToDelete._id) {
+          await removeSavedNews(cardToDelete, token);
+          updateNews({ ...newsData, _id: "", isSaved: false }, true);
+          console.log("Article removed:", cardToDelete);
+        } else {
+          throw new Error("Failed to find article to delete");
+        }
       }
     } catch (err) {
       console.log(err);
