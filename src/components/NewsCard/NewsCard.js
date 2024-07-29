@@ -106,6 +106,18 @@ const NewsCard = ({
         </div>
       )}
 
+      {isHovered && isSaved && currentPage !== "/saved-news" && (
+        <div className="card__favorite-remove">
+          <p className="card__favorite-text">Remove from saved</p>
+        </div>
+      )}
+
+      {isHovered && isLoggedIn && !isSaved && currentPage !== "/saved-news" && (
+        <div className="card__favorite-remove">
+          <p className="card__favorite-text">Save article</p>
+        </div>
+      )}
+
       <div className="card__description">
         <p className="card__date">
           {new Date(newsData.publishedAt || newsData.date).toLocaleDateString(
