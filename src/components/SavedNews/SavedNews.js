@@ -11,9 +11,15 @@ import { SearchResultContext } from "../../contexts/SearchResultContext";
 import { getSavedNews } from "../../utils/api";
 import MobileHeader from "../MobileHeader/MobileHeader";
 
-const SavedNews = ({ onLogout, handleMobileModal }) => {
+const SavedNews = ({
+  onLogin,
+  onLogout,
+  handleMobileModal,
+  handleDeleteCard,
+  isSaved,
+}) => {
   const { currentUser } = useContext(CurrentUserContext);
-  const { savedNews } = useContext(SavedNewsContext);
+  const { savedNews, setSavedNews } = useContext(SavedNewsContext);
   // const { currentPage } = useContext(CurrentPageContext);
   // const { searchResults } = useContext(SearchResultContext);
 
@@ -66,6 +72,19 @@ const SavedNews = ({ onLogout, handleMobileModal }) => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      getSavedNews(token)
+        .then((news) => {
+          setSavedNews(news);
+        })
+        .catch((error) => {
+          console.error("Error fetching saved news:", error);
+        });
+    }
+  }, [savedNews]);
+
   return (
     <section className="saved-news">
       {isMobile ? (
@@ -94,7 +113,11 @@ const SavedNews = ({ onLogout, handleMobileModal }) => {
           <span className="saved-news__text-bold">{keywordString}</span>
         </p>
       </div>
-      <SavedNewsList />
+      <SavedNewsList
+        isSaved={isSaved}
+        onLogin={onLogin}
+        handleDeleteCard={handleDeleteCard}
+      />
     </section>
   );
 };

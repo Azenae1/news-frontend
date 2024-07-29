@@ -23,7 +23,7 @@ const NewsCard = ({
   const location = useLocation();
 
   const isSaved = savedNews.some((card) => card.link === newsData.url);
-  // console.log("Is saved:", isSaved, newsData.url);
+  console.log("Is saved:", isSaved, newsData.url);
 
   useEffect(() => {
     setCurrentPage(location.pathname);
@@ -41,19 +41,36 @@ const NewsCard = ({
   const handleFavorite = () => {
     const token = localStorage.getItem("token");
     if (isLoggedIn) {
-      handleSaveCard({ newsData, keyword, token }).then(() => {
-        getSavedNews(token).then((news) => {
+      handleSaveCard({ newsData, keyword, token })
+        .then(() => {
+          return getSavedNews(token);
+        })
+        .then((news) => {
           setSavedNews(news);
+        })
+        .catch((error) => {
+          console.error("Error saving card:", error);
         });
-      });
-    } else {
+    } else if (onLogin && typeof onLogin === "function") {
       onLogin();
+    } else {
+      console.error("onLogin is not a function or is undefined");
     }
   };
 
   const handleRemoveFavorite = () => {
     const token = localStorage.getItem("token");
-    handleDeleteCard({ newsData, token });
+    console.log("Removing card...");
+    handleDeleteCard({ newsData, token })
+      .then(() => {
+        return getSavedNews(token);
+      })
+      .then((news) => {
+        setSavedNews(news);
+      })
+      .catch((error) => {
+        console.error("Error removing card:", error);
+      });
   };
 
   const handleMouseEnter = () => {

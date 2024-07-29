@@ -1,4 +1,9 @@
-import React, { Route, Routes, useLocation } from "react-router-dom";
+import React, {
+  Route,
+  Routes,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import "./App.css";
@@ -37,6 +42,7 @@ function App() {
   const [keyword, setKeyword] = useState("");
 
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     setCurrentPage(location.pathname);
@@ -133,7 +139,7 @@ function App() {
     localStorage.removeItem("token");
     setCurrentUser({});
     setIsLoggedIn(false);
-    // navigate("/");
+    navigate("/");
   };
 
   const handleRedirect = () => {
@@ -258,6 +264,8 @@ function App() {
                         <SavedNews
                           onLogout={handleLogout}
                           handleMobileModal={openMobileModal}
+                          onLogin={openLoginModal}
+                          isSaved={isSaved}
                         />
                       }
                     />
