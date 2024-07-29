@@ -22,6 +22,10 @@ const SavedNewsList = ({
     getSavedNews(jwt).then(setSavedNews);
   }, [setSavedNews]);
 
+  // useEffect(() => {
+  //   console.log("Current saved news:", savedNews);
+  // }, [savedNews]);
+
   return (
     <ul className="saved-news__list searchlist__cards">
       {savedNews
@@ -30,7 +34,7 @@ const SavedNewsList = ({
           <NewsCard
             newsData={cards}
             key={cards.link}
-            handleDeletecard={handleDeleteCard}
+            handleDeleteCard={handleDeleteCard}
             handleSaveCard={handleSaveCard}
             onLogin={onLogin}
             isSaved={isSaved}

@@ -167,16 +167,13 @@ function App() {
 
   const handleSaveCard = async ({ newsData, keyword, token }) => {
     const cardSaved = savedNews.some((card) => card.link === newsData.url);
-    // console.log("Keyword:", keyword);
-    // console.log("News Data:", newsData);
+
     const updateNews = (updatedCard, remove = false) => {
-      // console.log("Updating news:", updatedCard, remove);
       const updatedSavedNews = remove
         ? savedNews.filter((card) => card._id !== updatedCard._id)
         : [updatedCard, ...savedNews];
 
       setSavedNews(updatedSavedNews);
-      // console.log("Updated saved news:", updatedSavedNews);
 
       const updatedSearchResults = searchResults.map((card) =>
         card.url === newsData.url ? updatedCard : card
@@ -188,7 +185,6 @@ function App() {
     try {
       if (!cardSaved) {
         const response = await addSavedNews(newsData, keyword, token);
-
         if (response && response.data && response.data._id) {
           const newArticle = {
             ...newsData,
@@ -196,21 +192,42 @@ function App() {
             isSaved: true,
           };
           updateNews(newArticle);
-          // console.log("New article saved:", newArticle);
         } else {
           throw new Error("Failed to save article");
         }
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleDeleteCard = async ({ newsData, token }) => {
+    console.log("Attempting to delete article:", newsData);
+    const cardToDelete = savedNews.find((card) => card.link === newsData.url);
+    console.log("Found card to delete:", cardToDelete);
+
+    const updateNews = (updatedCard, remove = false) => {
+      const updatedSavedNews = remove
+        ? savedNews.filter((card) => card._id !== updatedCard._id)
+        : [updatedCard, ...savedNews];
+
+      setSavedNews(updatedSavedNews);
+
+      const updatedSearchResults = searchResults.map((card) =>
+        card.url === newsData.url ? updatedCard : card
+      );
+
+      setSearchResults(updatedSearchResults);
+    };
+
+    try {
+      if (cardToDelete && cardToDelete._id) {
+        await removeSavedNews(cardToDelete._id, token);
+        updateNews({ ...newsData, _id: "", isSaved: false }, true);
+        console.log("Article removed:", cardToDelete);
       } else {
-        const cardToDelete = savedNews.find(
-          (card) => card.link === newsData.url
-        );
-        if (cardToDelete && cardToDelete._id) {
-          await removeSavedNews(cardToDelete, token);
-          updateNews({ ...newsData, _id: "", isSaved: false }, true);
-          console.log("Article removed:", cardToDelete);
-        } else {
-          throw new Error("Failed to find article to delete");
-        }
+        console.error("Failed to find article to delete:", cardToDelete);
+        throw new Error("Failed to find article to delete");
       }
     } catch (err) {
       console.log(err);
@@ -253,6 +270,7 @@ function App() {
                           handleSearch={handleSearch}
                           searchError={searchError}
                           handleSaveCard={handleSaveCard}
+                          handleDeleteCard={handleDeleteCard}
                           handleMobileModal={openMobileModal}
                         />
                       }
@@ -264,6 +282,7 @@ function App() {
                         <SavedNews
                           onLogout={handleLogout}
                           handleMobileModal={openMobileModal}
+                          handleDeleteCard={handleDeleteCard}
                           onLogin={openLoginModal}
                           isSaved={isSaved}
                         />

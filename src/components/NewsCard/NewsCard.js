@@ -23,7 +23,7 @@ const NewsCard = ({
   const location = useLocation();
 
   const isSaved = savedNews.some((card) => card.link === newsData.url);
-  console.log("Is saved:", isSaved, newsData.url);
+  // console.log("Is saved:", isSaved, newsData.url);
 
   useEffect(() => {
     setCurrentPage(location.pathname);
@@ -98,7 +98,17 @@ const NewsCard = ({
         <button
           className={iconClass}
           type="button"
-          onClick={isSaved ? handleRemoveFavorite : handleFavorite}
+          onClick={() => {
+            if (iconClass === "card__delete-button") {
+              handleRemoveFavorite();
+            } else {
+              if (isSaved) {
+                handleRemoveFavorite();
+              } else {
+                handleFavorite();
+              }
+            }
+          }}
         ></button>
       </div>
       <img
