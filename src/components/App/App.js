@@ -203,8 +203,9 @@ function App() {
 
   const handleDeleteCard = async ({ newsData, token }) => {
     console.log("Attempting to delete article:", newsData);
-    const cardToDelete = savedNews.find((card) => card.link === newsData.url);
+    const cardToDelete = savedNews.find((card) => card.link === newsData.link);
     console.log("Found card to delete:", cardToDelete);
+    console.log("Saved news list:", savedNews);
 
     const updateNews = (updatedCard, remove = false) => {
       const updatedSavedNews = remove
