@@ -57,9 +57,9 @@ function App() {
     return () => window.removeEventListener("resize", handleMobile);
   }, []);
 
-  const openRegisterModal = () => {
-    setActiveModal("signup");
-  };
+  // const openRegisterModal = () => {
+  //   setActiveModal("signup");
+  // };
 
   const openConfirmationModal = () => {
     setActiveModal("confirm");
