@@ -26,7 +26,9 @@ const SearchList = ({
 
   useEffect(() => {
     const jwt = localStorage.getItem("token");
-    getSavedNews(jwt).then(setSavedNews);
+    if (jwt) {
+      getSavedNews(jwt).then(setSavedNews);
+    }
   }, [setSavedNews]);
 
   const renderMoreNews = () => {

@@ -142,6 +142,7 @@ function App() {
       .catch((err) => {
         console.log(err);
         setSearchError(true);
+        setIsSearching(false);
       });
   };
 

@@ -9,6 +9,9 @@ export const handleResponse = (res) => {
 
 export const getSavedNews = async () => {
   const token = localStorage.getItem("token");
+  if (!token) {
+    return [];
+  }
 
   try {
     const response = await fetch(`${baseUrl}/articles`, {
