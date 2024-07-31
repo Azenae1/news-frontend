@@ -1,13 +1,10 @@
 import React, { useContext, useState, useEffect } from "react";
 
 import "./SavedNews.css";
-import NewsCard from "../NewsCard/NewsCard";
 import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
 import SavedNewsList from "../SavedNewsList/SavedNewsList";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { SavedNewsContext } from "../../contexts/SavedNewsContext";
-import { CurrentPageContext } from "../../contexts/CurrentPageContext";
-import { SearchResultContext } from "../../contexts/SearchResultContext";
 import { getSavedNews } from "../../utils/api";
 import MobileHeader from "../MobileHeader/MobileHeader";
 
@@ -20,8 +17,6 @@ const SavedNews = ({
 }) => {
   const { currentUser } = useContext(CurrentUserContext);
   const { savedNews, setSavedNews } = useContext(SavedNewsContext);
-  // const { currentPage } = useContext(CurrentPageContext);
-  // const { searchResults } = useContext(SearchResultContext);
 
   const userNews = savedNews.filter((card) => card.owner === currentUser._id);
 

@@ -3,7 +3,6 @@ import { useContext, useState, useEffect } from "react";
 
 import "./NewsCard.css";
 import { getSavedNews } from "../../utils/api";
-import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { CurrentPageContext } from "../../contexts/CurrentPageContext";
 import { SavedNewsContext } from "../../contexts/SavedNewsContext";
 import { KeywordContext } from "../../contexts/KeywordContext";
@@ -60,7 +59,7 @@ const NewsCard = ({
 
   const handleRemoveFavorite = () => {
     const token = localStorage.getItem("token");
-    console.log("Removing card ", newsData);
+    // console.log("Removing card ", newsData);
     handleDeleteCard({ newsData, token })
       .then(() => {
         return getSavedNews(token);

@@ -6,7 +6,7 @@ import { CurrentPageContext } from "../../contexts/CurrentPageContext";
 
 const MobileNavigation = ({ isLoggedIn, onLogin, onClose, onLogout }) => {
   const { currentPage } = useContext(CurrentPageContext);
-  console.log("Current page:", currentPage);
+  // console.log("Current page:", currentPage);
 
   const handleOverlay = (e) => {
     if (e.target === e.currentTarget) {

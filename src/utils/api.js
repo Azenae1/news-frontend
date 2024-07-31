@@ -62,7 +62,7 @@ export const addSavedNews = async (newsData, keyword, token) => {
 
 export const removeSavedNews = async (cardId, token) => {
   try {
-    console.log(`Removing article with ID: ${cardId}`);
+    // console.log(`Removing article with ID: ${cardId}`);
     const response = await fetch(`${baseUrl}/articles/${cardId}`, {
       method: "DELETE",
       headers: {
@@ -75,7 +75,7 @@ export const removeSavedNews = async (cardId, token) => {
       throw new Error(`Error: ${response.statusText}`);
     }
     const data = await response.json();
-    console.log("Article removed response:", data);
+    // console.log("Article removed response:", data);
     return data;
   } catch (error) {
     console.error("There was an error!", error);

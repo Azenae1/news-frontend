@@ -183,12 +183,12 @@ function App() {
   };
 
   const handleDeleteCard = async ({ newsData, token }) => {
-    console.log("Attempting to delete article:", newsData);
+    // console.log("Attempting to delete article:", newsData);
     const cardToDelete = savedNews.find(
       (card) => card.link === newsData.url || card.link === newsData.link
     );
-    console.log("Found card to delete:", cardToDelete);
-    console.log("Saved news list:", savedNews);
+    // console.log("Found card to delete:", cardToDelete);
+    // console.log("Saved news list:", savedNews);
 
     const updateNews = (updatedCard, remove = false) => {
       const updatedSavedNews = remove
@@ -208,7 +208,7 @@ function App() {
       if (cardToDelete && cardToDelete._id) {
         await removeSavedNews(cardToDelete._id, token);
         updateNews({ ...newsData, _id: "", isSaved: false }, true);
-        console.log("Article removed:", cardToDelete);
+        // console.log("Article removed:", cardToDelete);
       } else {
         console.error("Failed to find article to delete:", cardToDelete);
         throw new Error("Failed to find article to delete");

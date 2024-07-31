@@ -14,17 +14,11 @@ const SavedNewsList = ({
 }) => {
   const { currentUser } = useContext(CurrentUserContext);
   const { savedNews, setSavedNews } = useContext(SavedNewsContext);
-  //   const { currentPage } = useContext(CurrentPageContext);
-  //   const { searchResults } = useContext(SearchResultContext);
 
   useEffect(() => {
     const jwt = localStorage.getItem("token");
     getSavedNews(jwt).then(setSavedNews);
   }, [setSavedNews]);
-
-  // useEffect(() => {
-  //   console.log("Current saved news:", savedNews);
-  // }, [savedNews]);
 
   return (
     <ul className="saved-news__list searchlist__cards">
