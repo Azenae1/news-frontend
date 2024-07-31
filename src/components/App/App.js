@@ -89,26 +89,6 @@ function App() {
       });
   };
 
-  // const handleLogin = ({ email, password }) => {
-  //   setIsLoading(true);
-  //   signIn(email, password)
-  //     .then((res) => {
-  //       if (res) {
-  //         localStorage.setItem("token", res.token);
-  //         setIsLoggedIn(true);
-  //         handleCloseModal();
-  //       }
-  //       checkToken(res.token)
-  //         .then((data) => {
-  //           setCurrentUser(data);
-  //         })
-  //         .catch(console.error);
-  //     })
-  //     .catch(console.error)
-  //     .finally(() => {
-  //       setIsLoading(false);
-  //     });
-  // };
   const handleLogin = ({ email, password }) => {
     setIsLoading(true);
 
@@ -203,7 +183,9 @@ function App() {
 
   const handleDeleteCard = async ({ newsData, token }) => {
     console.log("Attempting to delete article:", newsData);
-    const cardToDelete = savedNews.find((card) => card.link === newsData.link);
+    const cardToDelete = savedNews.find(
+      (card) => card.link === newsData.url || card.link === newsData.link
+    );
     console.log("Found card to delete:", cardToDelete);
     console.log("Saved news list:", savedNews);
 

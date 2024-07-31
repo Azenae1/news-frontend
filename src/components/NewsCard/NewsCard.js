@@ -60,7 +60,7 @@ const NewsCard = ({
 
   const handleRemoveFavorite = () => {
     const token = localStorage.getItem("token");
-    console.log("Removing card...");
+    console.log("Removing card ", newsData);
     handleDeleteCard({ newsData, token })
       .then(() => {
         return getSavedNews(token);

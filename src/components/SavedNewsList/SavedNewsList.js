@@ -30,10 +30,10 @@ const SavedNewsList = ({
     <ul className="saved-news__list searchlist__cards">
       {savedNews
         .filter((card) => card.owner === currentUser._id)
-        .map((cards) => (
+        .map((news) => (
           <NewsCard
-            newsData={cards}
-            key={cards.link}
+            newsData={news}
+            key={news.link}
             handleDeleteCard={handleDeleteCard}
             handleSaveCard={handleSaveCard}
             onLogin={onLogin}
