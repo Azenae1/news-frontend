@@ -78,7 +78,7 @@ const SavedNews = ({
           console.error("Error fetching saved news:", error);
         });
     }
-  }, [savedNews]);
+  }, []);
 
   return (
     <section className="saved-news">
