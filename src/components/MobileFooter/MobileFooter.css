@@ -1,0 +1,33 @@
+.mobile-footer {
+  padding: 0 16px;
+  margin: 20px 0 22px;
+  height: auto;
+  max-width: 767px;
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-footer_buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.footer__buttons-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.footer__buttons-right {
+  display: flex;
+  justify-content: flex-end;
+  gap: 24px;
+  align-self: baseline;
+}
+
+.mobile-footer__copyright {
+  margin-top: 38px;
+  text-align: left;
+}

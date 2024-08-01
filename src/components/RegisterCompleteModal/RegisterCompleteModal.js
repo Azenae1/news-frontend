@@ -2,13 +2,7 @@ import { useEffect, useRef } from "react";
 import "../ModalWithForm/ModalWithForm.css";
 import "./RegisterCompleteModal.css";
 
-function RegisterCompleteModal({
-  isOpen,
-  name,
-  onClose,
-  switchToLogin,
-  onClick,
-}) {
+const RegisterCompleteModal = ({ onClose, switchToLogin }) => {
   const regModalRef = useRef();
   useEffect(() => {
     const handleClickOutside = (evt) => {
@@ -32,13 +26,7 @@ function RegisterCompleteModal({
     };
   }, [onClose]);
   return (
-    <div
-      className="modal"
-      //   className={
-      //     isOpen ? `modal modal_type_${name}` : `modal_type_${name} modal_hidden`
-      //   }
-      onClick={onClick}
-    >
+    <div className="modal">
       <div className="modal__container modal__register-container">
         <button
           onClick={onClose}
@@ -58,6 +46,6 @@ function RegisterCompleteModal({
       </div>
     </div>
   );
-}
+};
 
 export default RegisterCompleteModal;

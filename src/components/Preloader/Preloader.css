@@ -13,7 +13,6 @@
   align-items: center;
   z-index: 99;
   padding: 0 19px;
-  max-width: 1440px;
 }
 
 .preloader__circle {
@@ -43,7 +42,7 @@
 
 .preloader__text {
   margin-top: 124px;
-  font-family: Roboto;
+  font-family: "Roboto", "Inter", Arial, Helvetica, sans-serif;
   font-size: 18px;
   line-height: 24px;
   font-weight: 400;

@@ -1,5 +1,5 @@
 import "./ModalWithForm.css";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 const ModalWithForm = ({
   children,
@@ -7,16 +7,11 @@ const ModalWithForm = ({
   buttonText,
   onClose,
   name,
-  isOpen,
   onSubmit,
-  onInputChange,
+  isValid,
+  extraActions,
 }) => {
   const formModalRef = useRef();
-  const [isFormValid, setIsFormValid] = useState(false);
-
-  useEffect(() => {
-    setIsFormValid(onInputChange());
-  }, [onInputChange]);
 
   useEffect(() => {
     const handleClickOutside = (evt) => {
@@ -41,8 +36,11 @@ const ModalWithForm = ({
   }, [onClose]);
 
   return (
-    <div className={`modal modal__type_${name}`}>
-      <div className="modal__form-container" ref={formModalRef}>
+    <div className="modal">
+      <div
+        className={`modal__form-container modal__type_${name}`}
+        ref={formModalRef}
+      >
         <button
           type="button"
           onClick={onClose}
@@ -55,10 +53,13 @@ const ModalWithForm = ({
           <button
             type="submit"
             className="modal__form_submit-button"
-            disabled={!isFormValid}
+            disabled={!isValid}
           >
             {buttonText}
           </button>
+          {extraActions && (
+            <div className="modal__extra-actions">{extraActions}</div>
+          )}
         </form>
       </div>
     </div>

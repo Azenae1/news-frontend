@@ -1,20 +1,21 @@
 .notfound {
-  height: 374px;
-  max-width: 1440px;
+  width: calc(100vw - 17px);
+  padding: 86px 0 80px;
+  /* height: 374px; */
   background-color: rgba(245, 246, 247, 1);
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 1440px;
 }
 
 .notfound__img {
   width: 82.5px;
   height: 82.5px;
-  margin-top: 86px;
 }
 
 .notfound__title {
-  font-family: Roboto-Slab;
+  font-family: "Roboto Slab", "Inter", Arial, Helvetica, sans-serif;
   font-size: 26px;
   line-height: 30px;
   font-weight: 400;
@@ -23,8 +24,8 @@
 }
 
 .notfound__text {
-  margin: 0;
-  font-family: Roboto;
+  margin: 0 auto;
+  font-family: "Roboto", "Inter", Arial, Helvetica, sans-serif;
   font-size: 18px;
   line-height: 24px;
   font-weight: 400;

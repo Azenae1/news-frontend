@@ -3,7 +3,7 @@
   height: 80px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   box-sizing: border-box;
-  padding: 19px 104px 13px;
+  padding: 19px 104px 0;
   display: flex;
   justify-content: space-between;
 }
@@ -12,7 +12,7 @@
   margin-top: 11px;
   font-size: 20px;
   line-height: 24px;
-  font-family: "Roboto-Slab";
+  font-family: "Roboto Slab", "Inter", Arial, Helvetica, sans-serif;
   font-weight: 700;
 }
 
@@ -25,28 +25,23 @@
   border: none;
   background: transparent;
   cursor: pointer;
+  margin-right: 20px;
 }
 
 .header__button {
-  align-self: center;
+  /* align-self: center; */
   border: none;
   background: transparent;
   padding: 0;
-  font-family: Roboto;
-  /* font-weight: 500; */
+  font-family: "Roboto", "Inter", Arial, Helvetica, sans-serif;
   font-size: 18px;
   line-height: 24px;
-
   cursor: pointer;
-}
-
-.header__button-color {
   color: white;
 }
 
 .header__button-home {
-  margin-left: auto;
-  margin-right: 42px;
+  margin: 11px 42px 0 auto;
 }
 
 .header__underline {
@@ -67,11 +62,7 @@
 }
 
 .header__button-saved {
-  margin-left: 34px;
-  margin-right: 64px;
-}
-
-.header__button_saved-color {
+  margin: 11px 64px 0 34px;
   color: rgba(182, 188, 191, 1);
 }
 
@@ -94,4 +85,43 @@
   width: 16px;
   height: 16px;
   margin-left: 12px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .header {
+    height: 66px;
+    padding: 14px 40px 0;
+  }
+
+  .header__logo {
+    margin-top: 9px;
+  }
+
+  .header__button {
+    height: 24px;
+    font-size: 16px;
+  }
+
+  .header__button-home {
+    margin: 8px 16px 0 auto;
+  }
+
+  .header__button-saved {
+    width: 160px;
+    margin: 8px 16px 0 0;
+    text-align: center;
+  }
+
+  .header__underline {
+    width: 60px;
+    margin-top: 17px;
+  }
+
+  .header__button-signin {
+    width: 152px;
+    height: 40px;
+  }
+  .header__button-logout {
+    height: 40px;
+  }
 }
