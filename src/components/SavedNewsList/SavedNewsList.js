@@ -17,8 +17,12 @@ const SavedNewsList = ({
 
   useEffect(() => {
     const jwt = localStorage.getItem("token");
-    getSavedNews(jwt).then(setSavedNews);
-  }, [setSavedNews]);
+    getSavedNews(jwt)
+      .then(setSavedNews)
+      .catch((error) => {
+        console.error("Error fetching saved news:", error);
+      });
+  }, []);
 
   return (
     <ul className="saved-news__list searchlist__cards">

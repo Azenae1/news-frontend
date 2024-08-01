@@ -27,7 +27,11 @@ const SearchList = ({
   useEffect(() => {
     const jwt = localStorage.getItem("token");
     if (jwt) {
-      getSavedNews(jwt).then(setSavedNews);
+      getSavedNews(jwt)
+        .then(setSavedNews)
+        .catch((error) => {
+          console.error("Error fetching saved news:", error);
+        });
     }
   }, [setSavedNews]);
 

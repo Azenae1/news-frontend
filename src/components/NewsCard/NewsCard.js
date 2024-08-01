@@ -31,9 +31,13 @@ const NewsCard = ({
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
-      getSavedNews(token).then((news) => {
-        setSavedNews(news);
-      });
+      getSavedNews(token)
+        .then((news) => {
+          setSavedNews(news);
+        })
+        .catch((error) => {
+          console.error("Error fetching saved news:", error);
+        });
     }
   }, [setSavedNews]);
 
