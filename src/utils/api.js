@@ -50,13 +50,7 @@ export const addSavedNews = async (newsData, keyword, token) => {
         keyword: keyword,
       }),
     });
-
-    if (!response.ok) {
-      throw new Error(`Error: ${response.statusText}`);
-    }
-    const data = await response.json();
-    // console.log("Article saved response:", data);
-    return data;
+    return handleResponse(response);
   } catch (error) {
     console.error("There was an error!", error);
     return null;
@@ -73,13 +67,7 @@ export const removeSavedNews = async (cardId, token) => {
         authorization: `Bearer ${token}`,
       },
     });
-
-    if (!response.ok) {
-      throw new Error(`Error: ${response.statusText}`);
-    }
-    const data = await response.json();
-    // console.log("Article removed response:", data);
-    return data;
+    return handleResponse(response);
   } catch (error) {
     console.error("There was an error!", error);
     return null;

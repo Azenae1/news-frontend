@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import { useFormAndValidation } from "../../hooks/useFormAndValidation";
 
 const RegisterModal = ({
   handleCloseModal,
@@ -8,31 +9,17 @@ const RegisterModal = ({
   isLoading,
   isOpen,
 }) => {
-  const validateForm = () => {
-    return (
-      email.trim() !== "" &&
-      password.trim().length >= 6 &&
-      name.trim().length >= 2
-    );
-  };
-
-  const [name, setName] = useState("");
-  const handleNameChange = (e) => {
-    // console.log(e.target.value);
-    setName(e.target.value);
-  };
-  const [password, setPassword] = useState("");
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
-  const [email, setEmail] = useState("");
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
+  const { values, handleChange, errors, isValid, resetForm } =
+    useFormAndValidation();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onRegister({ name, password, email });
+    onRegister({
+      name: values.name,
+      password: values.password,
+      email: values.email,
+    });
+    resetForm();
   };
 
   const extraActions = (
@@ -53,23 +40,25 @@ const RegisterModal = ({
       onClose={handleCloseModal}
       isOpen={isOpen}
       onSubmit={handleSubmit}
-      onInputChange={validateForm}
+      isValid={isValid}
       extraActions={extraActions}
     >
       <div className="modal__form-field">
         <label>
           <h4 className="modal__text">Email</h4>
+
           <input
             type="email"
             name="email"
-            value={email}
+            value={values.email || ""}
             minLength="1"
             maxLength="30"
             required
             placeholder="Enter email"
             className="modal__input"
-            onChange={handleEmailChange}
+            onChange={handleChange}
           />
+          <span className="modal__input-error">{errors.email}</span>
         </label>
       </div>
       <div className="modal__form-field">
@@ -78,13 +67,14 @@ const RegisterModal = ({
           <input
             type="password"
             name="password"
-            value={password}
+            value={values.password || ""}
             minLength="6"
             required
             placeholder="Enter password"
             className="modal__input"
-            onChange={handlePasswordChange}
+            onChange={handleChange}
           />
+          <span className="modal__input-error">{errors.password}</span>
         </label>
       </div>
       <div className="modal__form-field">
@@ -93,14 +83,15 @@ const RegisterModal = ({
           <input
             type="text"
             name="name"
-            value={name}
+            value={values.name || ""}
             minLength="2"
             maxLength="30"
             required
             placeholder="Enter your username"
             className="modal__input"
-            onChange={handleNameChange}
+            onChange={handleChange}
           />
+          <span className="modal__input-error">{errors.name}</span>
         </label>
       </div>
     </ModalWithForm>

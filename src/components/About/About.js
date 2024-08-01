@@ -14,8 +14,8 @@ const About = () => {
           continue upgrading my tech skills and use them to contribute and
           develop amazing products! <br></br>
           <br></br>If you like this website and have any offers for me, please
-          don't hesitate to reach me out on LinkedIn. You can also see my other
-          projects on GitHub, all the links are at the bottom of the page.{" "}
+          don't hesitate to reach me out on LinkedIn. You can also check my
+          other projects on GitHub, all the links are at the bottom of the page.{" "}
         </p>
       </div>
     </section>
