@@ -18,6 +18,7 @@ import { signIn, signUp, checkToken } from "../../utils/auth";
 import { addSavedNews, removeSavedNews } from "../../utils/api";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import SavedNews from "../SavedNews/SavedNews";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
@@ -243,7 +244,6 @@ function App() {
                 <div className="app">
                   <Routes>
                     <Route
-                      exact
                       path="/"
                       element={
                         <Main
@@ -260,16 +260,21 @@ function App() {
                       }
                     />
                     <Route
-                      exact
                       path="/saved-news"
                       element={
-                        <SavedNews
-                          onLogout={handleLogout}
-                          handleMobileModal={openMobileModal}
-                          handleDeleteCard={handleDeleteCard}
-                          onLogin={openLoginModal}
-                          isSaved={isSaved}
-                        />
+                        <ProtectedRoute
+                          path="/saved-news"
+                          isLoggedIn={isLoggedIn}
+                          isLoggedInLoading={isLoggedInLoading}
+                        >
+                          <SavedNews
+                            onLogout={handleLogout}
+                            handleMobileModal={openMobileModal}
+                            handleDeleteCard={handleDeleteCard}
+                            onLogin={openLoginModal}
+                            isSaved={isSaved}
+                          />
+                        </ProtectedRoute>
                       }
                     />
                   </Routes>
