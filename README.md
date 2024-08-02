@@ -28,3 +28,9 @@ Project is deployed via Google Cloud and is now fully operational!
 
 ## Screenshots
 
+![image](https://github.com/user-attachments/assets/7c7e1699-2668-4cdf-abf0-d07f00f37615)
+![image](https://github.com/user-attachments/assets/f944e4a1-8b80-4be5-bb24-dbbe83a50e4a)
+![image](https://github.com/user-attachments/assets/3b2c8a69-5521-46de-884c-cd8f1f5e05e1)
+![image](https://i.imgur.com/O7wNOzW.png)
+
+
