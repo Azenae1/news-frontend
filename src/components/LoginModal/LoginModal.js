@@ -19,13 +19,16 @@ const LoginModal = ({
   };
 
   const extraActions = (
-    <button
-      className="modal__form_switch-button"
-      onClick={switchToRegister}
-      type="button"
-    >
-      or <span className="modal__form_switch-button_text">Sign up</span>
-    </button>
+    <div className="modal__form_switch-wrapper">
+      <span className="modal__form_switch-text">or&nbsp;</span>
+      <button
+        className="modal__form_switch-button"
+        onClick={switchToRegister}
+        type="button"
+      >
+        <span className="modal__form_switch-button_text">Sign up</span>
+      </button>
+    </div>
   );
 
   return (

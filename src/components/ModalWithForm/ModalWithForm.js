@@ -45,6 +45,7 @@ const ModalWithForm = ({
           type="button"
           onClick={onClose}
           className="modal__form_close-button"
+          aria-label="Close popup window"
         />
         <form className="modal__form" onSubmit={onSubmit}>
           <h3 className="modal__form-title">{title}</h3>

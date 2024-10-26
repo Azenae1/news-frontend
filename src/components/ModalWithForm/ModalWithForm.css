@@ -87,6 +87,12 @@
   align-self: center;
 }
 
+.modal__form_switch-text {
+  color: rgba(0, 0, 0, 0.5);
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
 .modal__form_switch-button {
   color: rgba(0, 0, 0, 0.5);
   padding: 0;

@@ -23,13 +23,16 @@ const RegisterModal = ({
   };
 
   const extraActions = (
-    <button
-      className="modal__form_switch-button"
-      onClick={switchToLogin}
-      type="button"
-    >
-      or <span className="modal__form_switch-button_text">Sign in</span>
-    </button>
+    <div className="modal__form_switch-wrapper">
+      <span className="modal__form_switch-text">or&nbsp;</span>
+      <button
+        className="modal__form_switch-button"
+        onClick={switchToLogin}
+        type="button"
+      >
+        <span className="modal__form_switch-button_text">Sign in</span>
+      </button>
+    </div>
   );
 
   return (
