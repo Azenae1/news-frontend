@@ -32,6 +32,7 @@ const RegisterCompleteModal = ({ onClose, switchToLogin }) => {
           onClick={onClose}
           type="button"
           className="modal__form_close-button"
+          aria-label="Close popup window"
         ></button>
         <h3 className="modal__register-text">
           Registration successfully completed!

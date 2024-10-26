@@ -9,10 +9,10 @@ const About = () => {
         <h2 className="about__title">About the author</h2>
         <p className="about__description">
           Hello there, nice to meet you! My name's Yura and I currently live in
-          Israel. After making Aliyah from Russia in 2023, I decided to follow
-          my passion and become a Software Developer. I'm looking forward to
-          continue upgrading my tech skills and use them to contribute and
-          develop amazing products! <br></br>
+          Israel. After making Aliyah in 2023, I decided to follow my passion
+          and become a Software Developer. I'm looking forward to continue
+          upgrading my tech skills and use them to contribute and develop
+          amazing products! <br></br>
           <br></br>If you like this website and have any offers for me, please
           don't hesitate to reach me out on LinkedIn. You can also check my
           other projects on GitHub, all the links are at the bottom of the page.{" "}
