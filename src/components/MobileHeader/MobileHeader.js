@@ -35,6 +35,7 @@ const MobileHeader = ({ currentRoute, handleMobileModal }) => {
             className="mobile-header__menu-icon"
             src={menuIcon}
             alt="menu icon"
+            aria-label="Menu"
           />
         </button>
       </div>
